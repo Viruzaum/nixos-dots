@@ -13,7 +13,7 @@
     config = {
       hyprland = {
         default = [ "hyprland" ];
-	# this doesnt work
+        # this doesnt work
         "org.freedesktop.portal.FileChooser" = [ "gtk" ];
       };
     };

@@ -13,6 +13,7 @@
     config = {
       hyprland = {
         default = [ "hyprland" ];
+	# this doesnt work
         "org.freedesktop.portal.FileChooser" = [ "gtk" ];
       };
     };
@@ -26,7 +27,6 @@
       bind =
         [
           "$mod, return, exec, alacritty"
-	  #"alt, space, pass, fcitx5"
         ]
         ++ (
           # workspaces
@@ -211,11 +211,9 @@
     hyprlock
     grimblast
     feh
-    #nerdfonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  # TODO: finish setting up waybar
   # TODO: move waybar to its own file
   programs.waybar = {
     enable = true;
@@ -266,7 +264,6 @@
           interval = 1;
         };
         "temperature" = {
-          #hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
           critical-threshold = 80;
           format = "<span foreground='#f29668'></span> {temperatureC}°C";
           interval = 1;

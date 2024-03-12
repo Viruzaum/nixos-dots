@@ -1,4 +1,4 @@
-{ authorizedKeys ? [], ... }:
+{ authorizedKeys ? [ ], ... }:
 
 {
   services.openssh = {

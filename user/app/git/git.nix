@@ -9,4 +9,7 @@
     init.defaultBranch = "main";
     safe.directory = "/home/viruz/.dotfiles";
   };
+
+  programs.gh.enable = true;
+  programs.gh.gitCredentialHelper.enable = true;
 }

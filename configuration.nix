@@ -44,12 +44,6 @@
     ];
   };
 
-  #nixpkgs.overlays = [
-  #  (final: prev: {
-  #    ffmpeg = prev.ffmpeg.override { withDav1d = true; };
-  #  })
-  #];
-
   # otd
   hardware.opentabletdriver = {
     enable = true;
@@ -70,11 +64,9 @@
     enable = true;
     allowedTCPPortRanges = [
       { from = 1714; to = 1764; } # KDE Connect
-      { from = 2234; to = 2239; } # nicotine+
     ];
     allowedUDPPortRanges = [
       { from = 1714; to = 1764; } # KDE Connect
-      #{ from = 2234; to = 2239; } # nicotine+
     ];
   };
 
@@ -128,7 +120,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    ffmpeg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

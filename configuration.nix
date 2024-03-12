@@ -17,10 +17,6 @@
       ./system/app/steam.nix
       ./system/app/prismlauncher.nix
       ./system/app/games.nix
-
-      (import ./system/security/sshd.nix {
-        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxnlLiuwRZl4lHSqquCJhxH5/ld8BLPoDB0PeMAvITR viruz@localhost" ];
-      })
     ];
 
   # Bootloader.

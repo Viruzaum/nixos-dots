@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   myAliases = {
     cat = "bat";
     neofetch = "disfetch";
     hx = "helix";
   };
-in
-{
+in {
   programs.fish = {
     enable = true;
     shellAliases = myAliases;

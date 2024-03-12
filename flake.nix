@@ -1,5 +1,4 @@
 {
-
   description = "Viruz Flake";
 
   inputs = {
@@ -22,35 +21,39 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, stylix, ... }@inputs:
-    let
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      #pkgs = nixpkgs.legacyPackages.${system};
-      pkgs = import inputs.nixpkgs {
-        overlays = [ inputs.nur.overlay ];
-        system = system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
-      nixosConfigurations = {
-        viruz-nix = lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [ ./configuration.nix ];
-        };
-      };
-      homeConfigurations."viruz" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        extraSpecialArgs = { inherit inputs; };
-
-        modules = [
-          stylix.homeManagerModules.stylix
-          ./home.nix
-        ];
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nur,
+    stylix,
+    ...
+  } @ inputs: let
+    lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    pkgs = import inputs.nixpkgs {
+      overlays = [inputs.nur.overlay];
+      system = system;
+      config.allowUnfree = true;
+    };
+  in {
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    nixosConfigurations = {
+      viruz-nix = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [./configuration.nix];
       };
     };
+    homeConfigurations."viruz" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      extraSpecialArgs = {inherit inputs;};
+
+      modules = [
+        stylix.homeManagerModules.stylix
+        ./home.nix
+      ];
+    };
+  };
 }

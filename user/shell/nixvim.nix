@@ -1,6 +1,4 @@
-{ inputs, ... }:
-
-{
+{inputs, ...}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
@@ -43,6 +41,4 @@
 
     clipboard.providers.wl-copy.enable = true;
   };
-
-
 }

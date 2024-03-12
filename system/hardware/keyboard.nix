@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   br-workman = pkgs.writeText "br-workman" ''
     partial alphanumeric_keys
     xkb_symbols "workman" {
@@ -54,12 +53,11 @@ let
     // Configures the use of the AltGr key
       include "level3(ralt_switch)"
     };'';
-in
-{
+in {
   services.xserver.xkb.extraLayouts = {
     br-workman = {
       description = "Workman for abnt2.";
-      languages = [ "br" ];
+      languages = ["br"];
       symbolsFile = br-workman;
     };
   };

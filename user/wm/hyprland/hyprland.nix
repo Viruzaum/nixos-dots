@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ../../app/terminal/alacritty.nix
     ../../app/yazi/yazi.nix
@@ -9,19 +7,19 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
     config = {
       hyprland = {
-        default = [ "hyprland" ];
+        default = ["hyprland"];
         # this doesnt work
-        "org.freedesktop.portal.FileChooser" = [ "gtk" ];
+        "org.freedesktop.portal.FileChooser" = ["gtk"];
       };
     };
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ ];
+    plugins = [];
     settings = {
       "$mod" = "SUPER";
       bind =
@@ -33,15 +31,12 @@
           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
           builtins.concatLists (builtins.genList
             (
-              x:
-              let
-                ws =
-                  let
-                    c = (x + 1) / 10;
-                  in
+              x: let
+                ws = let
+                  c = (x + 1) / 10;
+                in
                   builtins.toString (x + 1 - (c * 10));
-              in
-              [
+              in [
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
               ]
@@ -52,7 +47,7 @@
     extraConfig = ''
       monitor = ,preferred,auto,auto
       exec-once = dbus-update-actvation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
-      
+
       exec-once = waybar
       exec-once = hyprpaper
       exec-once = hypridle
@@ -63,7 +58,7 @@
       env = XDG_SESSION_TYPE,wayland
 
       env = WLR_DRM_NO_ATOMIC,1
-      
+
       general {
         layout = dwindle
         cursor_inactive_timeout = 30
@@ -185,7 +180,7 @@
       inner_color = rgba(00000000)
       font_color = rgb(10, 10, 10)
       fade_on_empty = true
-      placeholder_text = 
+      placeholder_text =
       hide_input = true
 
       position = 0, 0
@@ -211,7 +206,7 @@
     hyprlock
     grimblast
     feh
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
   # TODO: move waybar to its own file
@@ -225,9 +220,9 @@
         margin = "0";
         spacing = 2;
 
-        modules-left = [ "clock" "hyprland/window" ];
-        modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "tray" "cpu" "temperature" "memory" "pulseaudio" ];
+        modules-left = ["clock" "hyprland/window"];
+        modules-center = ["hyprland/workspaces"];
+        modules-right = ["tray" "cpu" "temperature" "memory" "pulseaudio"];
 
         "hyprland/window" = {
           format = "{title}";
@@ -280,11 +275,10 @@
             headphone = "";
             phone = "";
             portable = "";
-            default = [ "" "" "" ];
+            default = ["" "" ""];
           };
           on-click-left = "pavucontrol";
           input = true;
-
         };
         "tray" = {
           format = "<span foreground='#957FB8'>{icon}</span>";

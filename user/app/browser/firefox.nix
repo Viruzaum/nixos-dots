@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles.viruz = {

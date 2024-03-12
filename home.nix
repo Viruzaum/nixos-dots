@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

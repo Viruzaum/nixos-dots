@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   # pipewire
   security.rtkit.enable = true;
   services.pipewire = {

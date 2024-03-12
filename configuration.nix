@@ -1,30 +1,30 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, pkgs, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./system/app/flatpak.nix
-      ./system/app/pipewire.nix
-      ./system/hardware/kernel.nix
-      ./system/hardware/opengl.nix
-      ./system/hardware/keyboard.nix
-      ./system/app/steam.nix
-      ./system/app/prismlauncher.nix
-      ./system/app/games.nix
-    ];
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./system/app/flatpak.nix
+    ./system/app/pipewire.nix
+    ./system/hardware/kernel.nix
+    ./system/hardware/opengl.nix
+    ./system/hardware/keyboard.nix
+    ./system/app/steam.nix
+    ./system/app/prismlauncher.nix
+    ./system/app/games.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # fish
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
 
@@ -59,10 +59,16 @@
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
     allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
   };
 
@@ -104,7 +110,7 @@
   users.users.viruz = {
     isNormalUser = true;
     description = "viruz";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Allow unfree packages
@@ -144,7 +150,7 @@
   # networking.firewall.enable = false;
 
   nix.optimise.automatic = true;
-  nix.optimise.dates = [ "22:00" ];
+  nix.optimise.dates = ["22:00"];
 
   nix.gc = {
     automatic = true;
@@ -164,7 +170,6 @@
     #randomizedDelaySec = "45min";
   };
 
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -173,6 +178,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 }

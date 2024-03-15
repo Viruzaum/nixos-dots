@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./system/wm/hyprland.nix
     ./system/app/flatpak.nix
     ./system/app/pipewire.nix
     ./system/hardware/kernel.nix

@@ -25,6 +25,10 @@
       bind =
         [
           "$mod, return, exec, alacritty"
+	  "$mod SHIFT, code:43, swapwindow, l"
+	  "$mod SHIFT, code:46, swapwindow, r"
+	  "$mod SHIFT, code:45, swapwindow, u"
+	  "$mod SHIFT, code:44, swapwindow, d"
         ]
         ++ (
           # workspaces

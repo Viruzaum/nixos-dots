@@ -139,8 +139,8 @@
   # services.openssh.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  services.xserver.displayManager.lightdm.enable = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
   services.gnome.gnome-keyring.enable = true;
 

@@ -5,17 +5,17 @@
     ../../app/notification/mako.nix
   ];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
-    config = {
-      hyprland = {
-        default = ["hyprland"];
-        # this doesnt work
-        "org.freedesktop.portal.FileChooser" = ["gtk"];
-      };
-    };
-  };
+  #xdg.portal = {
+  #enable = true;
+  #extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
+  #config = {
+  #hyprland = {
+  #default = ["hyprland"];
+  # this doesnt work
+  #"org.freedesktop.portal.FileChooser" = ["gtk"];
+  #};
+  #};
+  #};
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -43,10 +43,22 @@
             )
             10)
         );
+      monitor = ",preferred,auto,auto";
+      general = {
+	layout = "dwindle";
+	cursor_inactive_timeout = 30;
+	border_size = 2;
+	no_cursor_warps = false;
+	gaps_in = 0;
+	gaps_out = 0;
+	#"col.active_border" = "rgba(cba6f7ff) rgba(f5c2e7ff) 45deg";
+        #"col.inactive_border" = "rgba(1e1e2eff)";
+
+        allow_tearing = true;
+      };
     };
     extraConfig = ''
-      monitor = ,preferred,auto,auto
-      exec-once = dbus-update-actvation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
+      #monitor = ,preferred,auto,auto
 
       exec-once = waybar
       exec-once = hyprpaper
@@ -59,19 +71,19 @@
 
       env = WLR_DRM_NO_ATOMIC,1
 
-      general {
-        layout = dwindle
-        cursor_inactive_timeout = 30
-        border_size = 2
-        no_cursor_warps = false
-        gaps_in = 0
-        gaps_out = 0
+      #general {
+        #layout = dwindle
+        #cursor_inactive_timeout = 30
+        #border_size = 2
+        #no_cursor_warps = false
+        #gaps_in = 0
+        #gaps_out = 0
 
-        col.active_border = rgba(cba6f7ff) rgba(f5c2e7ff) 45deg
-        col.inactive_border = rgba(1e1e2eff)
+        #col.active_border = rgba(cba6f7ff) rgba(f5c2e7ff) 45deg
+        #col.inactive_border = rgba(1e1e2eff)
 
-        allow_tearing = true
-      }
+        #allow_tearing = true
+      #}
 
       input {
         kb_layout = br, br-workman

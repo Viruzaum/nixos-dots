@@ -2,7 +2,6 @@
   myAliases = {
     cat = "bat";
     neofetch = "disfetch";
-    hx = "helix";
   };
 in {
   programs.fish = {

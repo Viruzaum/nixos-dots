@@ -30,6 +30,7 @@
     ./user/style/stylix.nix
     ./user/app/games/mangohud.nix
     ./user/app/git/git.nix
+    ./user/app/sync/syncthing.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

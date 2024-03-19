@@ -7,6 +7,9 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = myAliases;
+    functions = {
+      fish_greeting = "neofetch";
+    };
   };
 
   programs.zoxide = {

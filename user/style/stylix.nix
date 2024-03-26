@@ -1,15 +1,18 @@
 {
-  config,
-  lib,
   pkgs,
+  inputs,
   ...
 }: {
+  imports = [
+    inputs.stylix.homeManagerModules.stylix
+  ];
+
   stylix.image = pkgs.fetchurl {
     url = "https://static.zerochan.net/Tendou.Alice.full.3631666.png";
     hash = "sha256-gTf08qQa7LQYq69xSGkmOR74adW7rZaBuXf4g+Kx2Hc=";
   };
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-  #stylix.targets.waybar.enable = false;
+
   stylix.fonts = {
     monospace = {
       name = "Intel One Mono";

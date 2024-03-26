@@ -31,6 +31,7 @@
     ./user/app/games/mangohud.nix
     ./user/app/git/git.nix
     ./user/app/sync/syncthing.nix
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   nixpkgs.config.allowUnfree = true;

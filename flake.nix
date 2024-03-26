@@ -29,9 +29,6 @@
     self,
     nixpkgs,
     home-manager,
-    nur,
-    stylix,
-    nix-index-database,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -47,7 +44,9 @@
       viruz-nix = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
-        modules = [./configuration.nix];
+        modules = [
+          ./configuration.nix
+        ];
       };
     };
     homeConfigurations."viruz" = home-manager.lib.homeManagerConfiguration {
@@ -56,8 +55,6 @@
       extraSpecialArgs = {inherit inputs;};
 
       modules = [
-        stylix.homeManagerModules.stylix
-        nix-index-database.hmModules.nix-index
         ./home.nix
       ];
     };

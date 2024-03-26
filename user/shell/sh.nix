@@ -1,14 +1,18 @@
 {pkgs, ...}: let
   myAliases = {
     cat = "bat";
-    neofetch = "disfetch";
+    #neofetch = "fastfetch -s title:separator:os:kernel:uptime:packages:shell:display:de:wm:theme:font:terminal:cpu:gpu:memory:swap:break:colors";
   };
 in {
+  imports = [
+    ./fastfetch.nix
+  ];
+
   programs.fish = {
     enable = true;
     shellAliases = myAliases;
     functions = {
-      fish_greeting = "neofetch";
+      fish_greeting = "fastfetch";
     };
   };
 

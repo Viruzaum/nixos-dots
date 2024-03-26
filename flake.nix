@@ -9,6 +9,9 @@
     };
     nur.url = "github:nix-community/NUR";
     #hyprland.url = "github:hyprwm/Hyprland";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";

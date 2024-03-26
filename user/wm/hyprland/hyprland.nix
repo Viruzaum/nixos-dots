@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../app/terminal/alacritty.nix
     ../../app/yazi/yazi.nix
     ../../app/notification/mako.nix
-  ];
 
   #xdg.portal = {
   #enable = true;
@@ -16,6 +19,10 @@
   #};
   #};
   #};
+    inputs.hyprpaper.homeManagerModules.hyprpaper
+    inputs.hypridle.homeManagerModules.hypridle
+    inputs.hyprlock.homeManagerModules.hyprlock
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -25,10 +32,10 @@
       bind =
         [
           "$mod, return, exec, alacritty"
-	  "$mod SHIFT, code:43, swapwindow, l"
-	  "$mod SHIFT, code:46, swapwindow, r"
-	  "$mod SHIFT, code:45, swapwindow, u"
-	  "$mod SHIFT, code:44, swapwindow, d"
+          "$mod SHIFT, code:43, swapwindow, l"
+          "$mod SHIFT, code:46, swapwindow, r"
+          "$mod SHIFT, code:45, swapwindow, u"
+          "$mod SHIFT, code:44, swapwindow, d"
         ]
         ++ (
           # workspaces
@@ -49,13 +56,13 @@
         );
       monitor = ",preferred,auto,auto";
       general = {
-	layout = "dwindle";
-	cursor_inactive_timeout = 30;
-	border_size = 2;
-	no_cursor_warps = false;
-	gaps_in = 0;
-	gaps_out = 0;
-	#"col.active_border" = "rgba(cba6f7ff) rgba(f5c2e7ff) 45deg";
+        layout = "dwindle";
+        cursor_inactive_timeout = 30;
+        border_size = 2;
+        no_cursor_warps = false;
+        gaps_in = 0;
+        gaps_out = 0;
+        #"col.active_border" = "rgba(cba6f7ff) rgba(f5c2e7ff) 45deg";
         #"col.inactive_border" = "rgba(1e1e2eff)";
 
         allow_tearing = true;
@@ -68,6 +75,7 @@
       exec-once = hyprpaper
       exec-once = hypridle
       exec-once = fcitx5 -d
+      exec-once = syncthing
 
       env = QT_QPA_PLATFORMTHEME,qt5ct
       env = QT_QPA_PLATFORM,wayland;xcb
@@ -118,13 +126,10 @@
       bind = $mainMod,code:25,exec,killall -SIGUSR2 waybar
       bind = ,pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-      #bind = ,print,exec,hyprshot -F -f 0 -m region -o $HOME/Pictures/screenshots/ -f "$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      #bind = SHIFT,print,exec,hyprshot -t 0 -m window -c -o $HOME/Pictures/screenshots/ -f "$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      #bind = CTRL,print,exec,hyprshot -t 0 -m output -c -o $HOME/Pictures/screenshots/ -f "$(daate +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
 
-      bind = ,print,exec,grimblast --notify --freeze copysave area "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      bind = SHIFT,print,exec,grimblast --notify copysave active "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      bind = CTRL,print,exec,grimblast --notify copysave output "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
+      bind = ,print,exec,${pkgs.grimblast}/bin/grimblast --notify --freeze copysave area "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
+      bind = SHIFT,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave active "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
+      bind = CTRL,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave output "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
 
       bind = $mainMod,code:43,movefocus,l
       bind = $mainMod,code:46,movefocus,r
@@ -150,60 +155,40 @@
     systemd.enable = true;
   };
 
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = /home/viruz/arisu/wallpaper.png
-    wallpaper = ,/home/viruz/arisu/wallpaper.png
-    splash = false
-    ipc = false
-  '';
+  services.hyprpaper = {
+    enable = true;
+    ipc = false;
+    preloads = [
+      "/home/viruz/arisu/wallpaper.png"
+    ];
+    wallpapers = [
+      ",/home/viruz/arisu/wallpaper.png"
+    ];
+  };
 
-  home.file.".config/hypr/hypridle.conf".text = ''
-    general {}
+  services.hypridle = {
+    enable = true;
+    listeners = [
+      {
+        timeout = 300;
+        onTimeout = "hyprctl disaptch dpms off";
+        onResume = "hyprctl dispatch dpms on";
+      }
+      {
+        timeout = 600;
+        onTimeout = "hyprlock";
+      }
+    ];
+  };
 
-    listener {
-      timeout = 300
-      on-timeout = hyprctl dispatch dpms off
-      on-resume = hyprctl dispatch dpms on
-    }
-
-    listener {
-      timeout = 600
-      on-timeout = hyprlock
-    }
-  '';
-
-  home.file.".config/hypr/hyprlock.conf".text = ''
-    general {
-      disable_loading_bar = false
-      hide_cursor = true
-      grace = 0
-      no_fade_in = false
-    }
-
-    background {
-      monitor =
-      path = /home/viruz/arisu/wallpaper.png
-    }
-
-    input-filed {
-      monitor =
-      size = 200, 50
-      outline_thickness = 0
-      dots_size = 0.33
-      dots_spacing = 0.15
-      dots_center = true
-      outer_color = rgba(00000000)
-      inner_color = rgba(00000000)
-      font_color = rgb(10, 10, 10)
-      fade_on_empty = true
-      placeholder_text =
-      hide_input = true
-
-      position = 0, 0
-      halign = center
-      valign = center
-    }
-  '';
+  programs.hyprlock = {
+    enable = true;
+    backgrounds = [
+      {
+        path = "/home/viruz/arisu/wallpaper.png";
+      }
+    ];
+  };
 
   home.packages = with pkgs; [
     wlr-randr
@@ -213,13 +198,7 @@
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xdg-utils
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
     pavucontrol
-    hyprpaper
-    hypridle
-    hyprlock
     grimblast
     feh
     (nerdfonts.override {fonts = ["JetBrainsMono"];})

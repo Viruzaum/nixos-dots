@@ -8,17 +8,6 @@
     ../../app/yazi/yazi.nix
     ../../app/notification/mako.nix
 
-  #xdg.portal = {
-  #enable = true;
-  #extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
-  #config = {
-  #hyprland = {
-  #default = ["hyprland"];
-  # this doesnt work
-  #"org.freedesktop.portal.FileChooser" = ["gtk"];
-  #};
-  #};
-  #};
     inputs.hyprpaper.homeManagerModules.hyprpaper
     inputs.hypridle.homeManagerModules.hypridle
     inputs.hyprlock.homeManagerModules.hyprlock

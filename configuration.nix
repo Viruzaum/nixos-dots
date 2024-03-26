@@ -11,7 +11,6 @@
     ./hardware-configuration.nix
     ./system/wm/hyprland.nix
     ./system/app/flatpak.nix
-    ./system/app/pipewire.nix
     ./system/hardware/kernel.nix
     ./system/hardware/opengl.nix
     ./system/hardware/keyboard.nix
@@ -138,11 +137,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
-
-  services.gnome.gnome-keyring.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -156,7 +157,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "-d";
   };
 
   system.autoUpgrade = {

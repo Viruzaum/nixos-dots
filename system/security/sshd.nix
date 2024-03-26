@@ -1,6 +1,4 @@
-{ authorizedKeys ? [ ], ... }:
-
-{
+{authorizedKeys ? [], ...}: {
   services.openssh = {
     enable = true;
     #openFirewall = true;

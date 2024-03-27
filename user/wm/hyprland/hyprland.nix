@@ -64,7 +64,6 @@
       exec-once = hyprpaper
       exec-once = hypridle
       exec-once = fcitx5 -d
-      exec-once = syncthing
 
       env = QT_QPA_PLATFORMTHEME,qt5ct
       env = QT_QPA_PLATFORM,wayland;xcb

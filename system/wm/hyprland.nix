@@ -1,7 +1,7 @@
-{
-  ...
-}: {
+{inputs, ...}: {
   imports = [
+    inputs.hyprland.nixosModules.default
+
     ./wayland.nix
     ./pipewire.nix
   ];
@@ -17,5 +17,4 @@
       hyprland.default = ["hyprland" "gtk"];
     };
   };
-
 }

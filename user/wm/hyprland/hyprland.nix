@@ -8,6 +8,7 @@
     ../../app/yazi/yazi.nix
     ../../app/notification/mako.nix
 
+    inputs.hyprland.homeManagerModules.default
     inputs.hyprpaper.homeManagerModules.hyprpaper
     inputs.hypridle.homeManagerModules.hypridle
     inputs.hyprlock.homeManagerModules.hyprlock
@@ -43,6 +44,9 @@
             )
             10)
         );
+      env = [
+        "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
+      ];
       monitor = ",preferred,auto,auto";
       general = {
         layout = "dwindle";
@@ -114,7 +118,6 @@
       bind = $mainMod,code:25,exec,killall -SIGUSR2 waybar
       bind = ,pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-
       bind = ,print,exec,${pkgs.grimblast}/bin/grimblast --notify --freeze copysave area "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
       bind = SHIFT,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave active "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
       bind = CTRL,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave output "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
@@ -159,12 +162,12 @@
     listeners = [
       {
         timeout = 300;
-        onTimeout = "hyprctl disaptch dpms off";
-        onResume = "hyprctl dispatch dpms on";
+        onTimeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
+        onResume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
       {
         timeout = 600;
-        onTimeout = "hyprlock";
+        onTimeout = "${pkgs.hyprlock}/bin/hyprlock";
       }
     ];
   };
@@ -187,6 +190,10 @@
     qt6.qtwayland
     xdg-utils
     pavucontrol
+    inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
+    xcur2png
+    xorg.xcursorgen
+    win2xcur
     grimblast
     feh
     (nerdfonts.override {fonts = ["JetBrainsMono"];})

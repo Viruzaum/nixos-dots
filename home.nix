@@ -31,6 +31,7 @@
     ./user/app/games/mangohud.nix
     ./user/app/git/git.nix
     ./user/app/sync/syncthing.nix
+    ./user/app/music/beets.nix
     inputs.nix-index-database.hmModules.nix-index
   ];
 
@@ -52,6 +53,7 @@
     nicotine-plus
     zapzap
     gimp
+    musikcube
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

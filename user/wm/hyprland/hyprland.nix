@@ -22,6 +22,27 @@
       bind =
         [
           "$mod, return, exec, alacritty"
+          "$mod, code:24, killactive"
+
+          "$mod SHIFT,code:24,exit"
+          "$mod,code:41,fullscreen"
+          "$mod,space,togglefloating"
+          "$mod,code:33,pseudo"
+          "$mod,code:55,togglesplit"
+
+          "$mod,code:40,exec,fuzzel"
+          "$mod,code:56,exec,firefox"
+          ",pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+          ",print,exec,${pkgs.grimblast}/bin/grimblast --notify --freeze copysave area \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+          "SHIFT,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave active \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+          "CTRL,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave output \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+
+          "$mod,code:43,movefocus,l"
+          "$mod,code:46,movefocus,r"
+          "$mod,code:45,movefocus,u"
+          "$mod,code:44,movefocus,d"
+
           "$mod SHIFT, code:43, swapwindow, l"
           "$mod SHIFT, code:46, swapwindow, r"
           "$mod SHIFT, code:45, swapwindow, u"
@@ -44,8 +65,15 @@
             )
             10)
         );
+      bindm = [
+        "$mod,mouse:272,movewindow"
+        "$mod,mouse:273,resizewindow"
+      ];
       env = [
         "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "XDG_SESSION_TYPE,wayland"
+        "WLR_DRM_NO_ATOMIC,1"
       ];
       monitor = ",preferred,auto,auto";
       general = {
@@ -55,93 +83,36 @@
         no_cursor_warps = false;
         gaps_in = 0;
         gaps_out = 0;
-        #"col.active_border" = "rgba(cba6f7ff) rgba(f5c2e7ff) 45deg";
-        #"col.inactive_border" = "rgba(1e1e2eff)";
 
         allow_tearing = true;
       };
+      exec-once = [
+        "waybar"
+        "fcitx5 -d"
+        "nicotine-plus"
+      ];
+      input = {
+        kb_layout = "br, br-workman";
+        kb_options = "caps:none, grp:alt_shift_toggle";
+        accel_profile = "flat";
+        follow_mouse = 1;
+        sensitivity = 0;
+      };
+      misc = {
+        vfr = true;
+      };
+      windowrulev2 = [
+        "suppressevent maximize, class:.*"
+        "float,title:^(Picture-in-Picture)$"
+        "pin,title:^(Picture-in-Picture)$"
+        "keepaspectratio,title:^(Picture-in-Picture)$"
+        "keepaspectratio,class:^(mpv)$"
+        "workspace 3,class:^(vesktop)$"
+        "workspace 2,class:^(firefox)$"
+        "immediate,class:^(osu!)$"
+        "immediate,class:^(Team Fortress 2 - OpenGL)$"
+      ];
     };
-    extraConfig = ''
-      #monitor = ,preferred,auto,auto
-
-      exec-once = waybar
-      exec-once = hyprpaper
-      exec-once = hypridle
-      exec-once = fcitx5 -d
-
-      env = QT_QPA_PLATFORMTHEME,qt5ct
-      env = QT_QPA_PLATFORM,wayland;xcb
-      env = XDG_SESSION_TYPE,wayland
-
-      env = WLR_DRM_NO_ATOMIC,1
-
-      #general {
-        #layout = dwindle
-        #cursor_inactive_timeout = 30
-        #border_size = 2
-        #no_cursor_warps = false
-        #gaps_in = 0
-        #gaps_out = 0
-
-        #col.active_border = rgba(cba6f7ff) rgba(f5c2e7ff) 45deg
-        #col.inactive_border = rgba(1e1e2eff)
-
-        #allow_tearing = true
-      #}
-
-      input {
-        kb_layout = br, br-workman
-        kb_options = caps:none, grp:alt_shift_toggle
-
-        accel_profile = flat
-
-        follow_mouse = 1
-
-        sensitivity = 0
-      }
-
-      misc {
-        vfr = true
-      }
-
-      $mainMod = SUPER
-      #bind = $mainMod,return,exec,alacritty
-      bind = $mainMod,code:24,killactive
-      bind = $mainMod SHIFT,code:24,exit
-      bind = $mainMod,code:41,fullscreen
-      bind = $mainMod,space,togglefloating
-      bind = $mainMod,code:33,pseudo
-      bind = $mainMod,code:55,togglesplit
-
-      bind = $mainMod,code:40,exec,fuzzel
-      bind = $mainMod,code:56,exec,firefox
-      bind = $mainMod,code:25,exec,killall -SIGUSR2 waybar
-      bind = ,pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-      bind = ,print,exec,${pkgs.grimblast}/bin/grimblast --notify --freeze copysave area "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      bind = SHIFT,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave active "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-      bind = CTRL,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave output "$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png"
-
-      bind = $mainMod,code:43,movefocus,l
-      bind = $mainMod,code:46,movefocus,r
-      bind = $mainMod,code:45,movefocus,u
-      bind = $mainMod,code:44,movefocus,d
-
-      bindm = $mainMod,mouse:272,movewindow
-      bindm = $mainMod,mouse:273,resizewindow
-
-      windowrulev2 = suppressevent maximize, class:.*
-      windowrulev2 = float,title:^(Picture-in-Picture)$
-      windowrulev2 = pin,title:^(Picture-in-Picture)$
-      windowrulev2 = keepaspectratio,title:^(Picture-in-Picture)$
-      windowrulev2 = keepaspectratio,class:^(mpv)$
-      windowrulev2 = workspace 3,class:^(vesktop)$
-      windowrulev2 = workspace 2,class:^(firefox)$
-      windowrulev2 = immediate,class:^(osu!.exe)$
-      windowrulev2 = immediate,class:^(osu!)$
-      windowrulev2 = immediate,class:^(Team Fortress 2 - OpenGL)$
-    '';
-
     xwayland.enable = true;
     systemd.enable = true;
   };

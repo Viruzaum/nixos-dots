@@ -7,7 +7,7 @@
     enable = true;
     vimAlias = true;
     colorschemes.gruvbox.enable = true;
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
 

@@ -1,7 +1,7 @@
 {...}: {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
+    #enableSessionWide = true;
     settings = {
       fps = true;
       frametime = true;

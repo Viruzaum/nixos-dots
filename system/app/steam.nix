@@ -18,6 +18,8 @@
           xorg.libXi
           xorg.libXinerama
           xorg.libXScrnSaver
+
+          mangohud
         ];
     };
   };

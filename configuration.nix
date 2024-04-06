@@ -28,7 +28,7 @@
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
 
-  # cache thing for gaming
+  # cache thing
   nix.settings = {
     substituters = [
       "https://nix-gaming.cachix.org"
@@ -96,6 +96,7 @@
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
+      fcitx5-gtk
     ];
   };
 
@@ -147,6 +148,10 @@
     };
   };
 
+  system.activationScripts.scripts.text = ''
+    cp /home/viruz/a/@home/viruz/Pictures/938f6b2a20e63f673dc865129eaa83a8.png /var/lib/AccountsService/icons/viruz
+  '';
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -170,7 +175,7 @@
       "nixpkgs"
       "-L" # print build logs
     ];
-    dates = "20:00";
+    dates = "01:00";
     #randomizedDelaySec = "45min";
   };
 

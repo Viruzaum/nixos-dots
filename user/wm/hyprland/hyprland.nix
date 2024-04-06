@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -36,9 +37,9 @@
           "$mod,code:56,exec,firefox"
           ",pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-          ",print,exec,${pkgs.grimblast}/bin/grimblast --notify --freeze copysave area \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
-          "SHIFT,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave active \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
-          "CTRL,print,exec,${pkgs.grimblast}/bin/grimblast --notify copysave output \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+          ",print,exec,${lib.getExe pkgs.grimblast} --notify --freeze copysave area \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+          "SHIFT,print,exec,${lib.getExe pkgs.grimblast} --notify copysave active \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+          "CTRL,print,exec,${lib.getExe pkgs.grimblast} --notify copysave output \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
 
           "$mod,code:43,movefocus,l"
           "$mod,code:46,movefocus,r"
@@ -94,6 +95,7 @@
         "waybar"
         "fcitx5 -d"
         "nicotine-plus"
+        "vesktop"
       ];
       input = {
         kb_layout = "br, br-workman";
@@ -151,18 +153,21 @@
     listeners = [
       {
         timeout = 300;
-        onTimeout = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-        onResume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+        onTimeout = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms off";
+        onResume = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms on";
       }
       {
         timeout = 600;
-        onTimeout = "${pkgs.hyprlock}/bin/hyprlock";
+        onTimeout = "${lib.getExe inputs.hyprlock.packages.${pkgs.system}.hyprlock}";
       }
     ];
   };
 
   programs.hyprlock = {
     enable = true;
+    general = {
+      no_fade_in = true;
+    };
     backgrounds = [
       {
         path = "/home/viruz/arisu/wallpaper.png";
@@ -179,10 +184,6 @@
     qt6.qtwayland
     xdg-utils
     pavucontrol
-    inputs.hyprcursor.packages.${pkgs.system}.hyprcursor
-    xcur2png
-    xorg.xcursorgen
-    win2xcur
     grimblast
     feh
     (nerdfonts.override {fonts = ["JetBrainsMono"];})

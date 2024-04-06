@@ -75,7 +75,7 @@
         "$mod,mouse:273,resizewindow"
       ];
       env = [
-        "HYPRCURSOR_THEME,HyprBibataModernClassicSVG"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "QT_QPA_PLATFORM,wayland;xcb"
         "XDG_SESSION_TYPE,wayland"
         "WLR_DRM_NO_ATOMIC,1"
@@ -184,6 +184,7 @@
     qt6.qtwayland
     xdg-utils
     pavucontrol
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     grimblast
     feh
     (nerdfonts.override {fonts = ["JetBrainsMono"];})

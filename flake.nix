@@ -22,6 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprcursor.url = "github:hyprwm/hyprcursor";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

@@ -96,6 +96,7 @@
         "fcitx5 -d"
         "nicotine-plus"
         "vesktop"
+        "deluged"
       ];
       input = {
         kb_layout = "br, br-workman";

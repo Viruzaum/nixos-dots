@@ -33,6 +33,7 @@
     ./user/app/sync/syncthing.nix
     ./user/app/music/beets.nix
     ./user/app/music/mpd.nix
+    ./user/app/player/mpv.nix
 
     inputs.nix-index-database.hmModules.nix-index
   ];
@@ -47,7 +48,6 @@
     })
     firefox
     anki-bin
-    mpv
     noto-fonts-cjk-sans
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     deluge-gtk

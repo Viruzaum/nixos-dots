@@ -158,6 +158,15 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  programs.nh = {
+    enable = true;
+    # package = inputs.nh.packages.${pkgs.system}.default;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 1w --keep 3";
+  };
+
+  environment.variables.FLAKE = "/home/viruz/.dotfiles";
+
   nix.optimise.automatic = true;
   nix.optimise.dates = ["22:00"];
 

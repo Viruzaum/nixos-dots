@@ -38,6 +38,12 @@
     };
   };
 
+  stylix.cursor = {
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RosePine-Linux";
+    size = 32;
+  };
+
   qt = {
     enable = true;
     style.package = pkgs.libsForQt5.breeze-qt5;

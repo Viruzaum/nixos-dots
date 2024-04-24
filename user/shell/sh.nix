@@ -5,6 +5,7 @@
   };
 in {
   imports = [
+    ./helix.nix
     ./fastfetch.nix
   ];
 

@@ -25,8 +25,6 @@
     ./user/wm/hyprland/hyprland.nix
     ./user/shell/sh.nix
     ./user/app/browser/firefox.nix
-    ./user/shell/nixvim.nix
-    ./user/shell/helix.nix
     ./user/style/stylix.nix
     ./user/app/games/mangohud.nix
     ./user/app/git/git.nix

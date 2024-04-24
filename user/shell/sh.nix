@@ -13,7 +13,7 @@ in {
     enable = true;
     shellAliases = myAliases;
     functions = {
-      fish_greeting = "fastfetch";
+      # fish_greeting = "fastfetch";
     };
   };
 
@@ -27,6 +27,7 @@ in {
     bat
     eza
     bottom
+    btop
     fd
     nix-prefetch-git
     ouch

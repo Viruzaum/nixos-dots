@@ -3,6 +3,6 @@
   pkgs,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = ["drivetemp"];
 }

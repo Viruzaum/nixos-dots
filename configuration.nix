@@ -136,6 +136,12 @@
   # };
 
   # List services that you want to enable:
+  services.sonarr = {
+    enable = true;
+    dataDir = "/home/viruz/.config/Sonarr/";
+    user = "viruz";
+    openFirewall = true;
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

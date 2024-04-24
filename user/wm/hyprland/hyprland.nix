@@ -38,10 +38,6 @@
           "$mod,code:56,exec,firefox"
           ",pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-          ",print,exec,${lib.getExe pkgs.grimblast} --notify --freeze copysave area \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
-          "SHIFT,print,exec,${lib.getExe pkgs.grimblast} --notify copysave active \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
-          "CTRL,print,exec,${lib.getExe pkgs.grimblast} --notify copysave output \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
-
           "$mod,code:43,movefocus,l"
           "$mod,code:46,movefocus,r"
           "$mod,code:45,movefocus,u"
@@ -71,6 +67,11 @@
             )
             10)
         );
+      bindl = [
+        ",print,exec,${lib.getExe pkgs.grimblast} --notify --freeze copysave area \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+        "SHIFT,print,exec,${lib.getExe pkgs.grimblast} --notify copysave active \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+        "CTRL,print,exec,${lib.getExe pkgs.grimblast} --notify copysave output \"$HOME/Pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | jq -r .class).png\""
+      ];
       bindm = [
         "$mod,mouse:272,movewindow"
         "$mod,mouse:273,resizewindow"
@@ -151,15 +152,24 @@
 
   services.hypridle = {
     enable = true;
+    lockCmd = lib.getExe inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+    beforeSleepCmd = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+    afterSleepCmd = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms on";
+    ignoreDbusInhibit = false;
     listeners = [
       {
         timeout = 300;
-        onTimeout = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms off";
-        onResume = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms on";
+        onTimeout = "${lib.getExe pkgs.brightnessctl} -s set 0";
+        onResume = "${lib.getExe pkgs.brightnessctl} -r";
+      }
+      {
+        timeout = 630;
+        onTimeout = "${lib.getExe' pkgs.deluge-gtk "deluge-console"} resume \"*\"";
+        onResume = "${lib.getExe' pkgs.deluge-gtk "deluge-console"} pause \"*\"";
       }
       {
         timeout = 600;
-        onTimeout = "${lib.getExe inputs.hyprlock.packages.${pkgs.system}.hyprlock}";
+        onTimeout = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
       }
     ];
   };

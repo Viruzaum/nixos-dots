@@ -1,13 +1,13 @@
 {...}: {
   programs.mangohud = {
     enable = true;
-    #enableSessionWide = true;
+    # enableSessionWide = true;
     settings = {
       fps = true;
       frametime = true;
       ram = true;
       swap = true;
-      gpu_stats = false;
+      gpu_stats = true;
       cpu_stats = true;
       cpu_temp = true;
       throttling_status = true;

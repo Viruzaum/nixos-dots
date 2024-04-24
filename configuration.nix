@@ -173,6 +173,15 @@
 
   environment.variables.FLAKE = "/home/viruz/.dotfiles";
 
+  security.wrappers = {
+    intel_gpu_top = {
+      owner = "root";
+      group = "wheel";
+      capabilities = "cap_perfmon+ep";
+      source = "${pkgs.intel-gpu-tools}/bin/intel_gpu_top";
+    };
+  };
+
   nix.optimise.automatic = true;
   nix.optimise.dates = ["22:00"];
 

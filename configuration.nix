@@ -94,10 +94,19 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
     ];
+  };
+
+  environment.variables = {
+    QT_IM_MODULE = "fcitx";
+    GTK_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx"; # Xwayland
+    GLFW_IM_MODULE = "ibus"; # Kitty support
+    SDL_IM_MODULE = "fcitx"; # games using specific SDL2 library
   };
 
   # Configure keymap in X11
@@ -163,6 +172,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs.nh = {
     enable = true;

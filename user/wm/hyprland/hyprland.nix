@@ -24,29 +24,28 @@
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, return, exec, alacritty"
           "$mod, code:24, killactive"
 
-          "$mod SHIFT,code:24,exit"
-          "$mod,code:41,fullscreen"
-          "$mod,space,togglefloating"
-          "$mod,code:33,pseudo"
-          "$mod,code:55,togglesplit"
+          "$mod SHIFT, code:24, exit"
+          "$mod, code:41, fullscreen"
+          "$mod, space, togglefloating"
+          "$mod, code:33, pseudo"
+          "$mod, code:55, togglesplit"
 
-          "$mod,code:40,exec,fuzzel"
-          "$mod,code:56,exec,firefox"
-          ",pause,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          "$mod, return, exec, ${lib.getExe pkgs.alacritty}"
+          "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
+          "$mod,code:56, exec, ${lib.getExe pkgs.firefox}"
+          ",pause,exec,${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-          "$mod,code:43,movefocus,l"
-          "$mod,code:46,movefocus,r"
-          "$mod,code:45,movefocus,u"
-          "$mod,code:44,movefocus,d"
+          "$mod, code:43,movefocus,l"
+          "$mod, code:46,movefocus,r"
+          "$mod, code:45,movefocus,u"
+          "$mod, code:44,movefocus,d"
 
           "$mod SHIFT, code:43, swapwindow, l"
           "$mod SHIFT, code:46, swapwindow, r"
           "$mod SHIFT, code:45, swapwindow, u"
           "$mod SHIFT, code:44, swapwindow, d"
-
         ]
         ++ (
           # workspaces
@@ -141,6 +140,7 @@
   services.hypridle = {
     enable = true;
     lockCmd = lib.getExe inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+    unlockCmd = "killall -USR1 hyprlock";
     beforeSleepCmd = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
     afterSleepCmd = "${lib.getExe' inputs.hyprland.packages.${pkgs.system}.hyprland "hyprctl"} dispatch dpms on";
     ignoreDbusInhibit = false;
@@ -177,14 +177,12 @@
   home.packages = with pkgs; [
     wlr-randr
     wl-clipboard
-    fuzzel
     wev
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xdg-utils
     pavucontrol
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    grimblast
     feh
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];

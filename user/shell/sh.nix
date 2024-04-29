@@ -13,7 +13,7 @@ in {
     enable = true;
     shellAliases = myAliases;
     functions = {
-      # fish_greeting = "fastfetch";
+      fish_greeting = "";
     };
   };
 

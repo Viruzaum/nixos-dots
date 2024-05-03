@@ -177,7 +177,6 @@
 
   programs.nh = {
     enable = true;
-    # package = inputs.nh.packages.${pkgs.system}.default;
     clean.enable = true;
     clean.extraArgs = "--keep-since 1w --keep 3";
   };
@@ -211,7 +210,6 @@
       "-L" # print build logs
     ];
     dates = "01:00";
-    #randomizedDelaySec = "45min";
   };
 
   # This value determines the NixOS release from which the default

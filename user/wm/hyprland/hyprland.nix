@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   lib,
   ...
@@ -130,10 +131,10 @@
     enable = true;
     ipc = false;
     preloads = [
-      "/home/viruz/arisu/wallpaper.png"
+      config.stylix.image
     ];
     wallpapers = [
-      ",/home/viruz/arisu/wallpaper.png"
+      ",${config.stylix.image}"
     ];
   };
 
@@ -169,7 +170,7 @@
     };
     backgrounds = [
       {
-        path = "/home/viruz/arisu/wallpaper.png";
+        path = config.stylix.image;
       }
     ];
   };

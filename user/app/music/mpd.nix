@@ -10,7 +10,7 @@
     '';
   };
 
-  services.mpd-discord-rpc.enable = true;
+  # services.mpd-discord-rpc.enable = true;
 
   programs.ncmpcpp = {
     enable = true;

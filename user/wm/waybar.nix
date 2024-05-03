@@ -1,6 +1,11 @@
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages.${pkgs.system}.default;
     settings = {
       mainBar = {
         layer = "top";
@@ -42,6 +47,7 @@
         };
         "cpu" = {
           format = "<span foreground='#aad94c'>󰯳</span> {usage}%";
+          interval = 1;
         };
         "memory" = {
           format = "<span foreground='#d2a6ff'>󰍛</span> {}%";

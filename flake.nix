@@ -3,6 +3,18 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +24,7 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprlock.url = "github:hyprwm/hyprlock";
     hypridle.url = "github:hyprwm/hypridle";
     hyprpaper.url = "github:hyprwm/hyprpaper";
@@ -22,7 +34,13 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hypr-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     waybar.url = "github:Alexays/Waybar";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
@@ -38,8 +56,8 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
+    lix-module,
     home-manager,
     ...
   } @ inputs: let
@@ -57,6 +75,7 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          lix-module.nixosModules.default
           ./configuration.nix
         ];
       };
@@ -67,7 +86,7 @@
       extraSpecialArgs = {inherit inputs;};
 
       modules = [
-        ./home.nix
+        ./home
       ];
     };
   };

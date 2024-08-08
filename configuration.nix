@@ -9,22 +9,30 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./system/wm/hyprland.nix
-    ./system/app/flatpak.nix
+    # ./system/wm/hyprland.nix
+    # ./system/wm/cosmic/cosmic.nix
+    # ./system/wm/plasma/plasma.nix
+    ./system/wm/cinnamon.nix
+    # ./system/programs/flatpak.nix
     ./system/hardware/kernel.nix
     ./system/hardware/opengl.nix
     ./system/hardware/keyboard.nix
-    ./system/app/steam.nix
-    ./system/app/prismlauncher.nix
-    ./system/app/games.nix
+    ./system/hardware/bluetooth.nix
+    ./system/programs/default.nix
+    ./system/programs/steam.nix
+    ./system/programs/prismlauncher.nix
+    ./system/programs/games.nix
+    ./system/services/sunshine.nix
+    ./system/services/jellyfin.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # fish
-  environment.shells = with pkgs; [fish];
+  environment.shells = [pkgs.fish];
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
 
@@ -34,11 +42,13 @@
       "https://nix-gaming.cachix.org"
       "https://cache.garnix.io"
       "https://hyprland.cachix.org"
+      "https://cache.lix.systems"
     ];
     trusted-public-keys = [
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
     ];
   };
 
@@ -54,6 +64,8 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -89,7 +101,7 @@
     LC_NUMERIC = "pt_BR.UTF-8";
     LC_PAPER = "pt_BR.UTF-8";
     LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
+    LC_TIME = "ja_JP.UTF-8";
   };
 
   i18n.inputMethod = {
@@ -100,6 +112,14 @@
       fcitx5-gtk
     ];
   };
+
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+
+    # here, NOT in environment.systemPackages
+  ];
 
   environment.variables = {
     QT_IM_MODULE = "fcitx";
@@ -136,6 +156,11 @@
     git
   ];
 
+  fonts.packages = with pkgs; [
+    # icon fonts
+    material-symbols
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -151,6 +176,8 @@
     user = "viruz";
     openFirewall = true;
   };
+
+  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -191,6 +218,8 @@
       source = "${pkgs.intel-gpu-tools}/bin/intel_gpu_top";
     };
   };
+
+  security.pam.services.hyprlock = {};
 
   nix.optimise.automatic = true;
   nix.optimise.dates = ["22:00"];

@@ -1,4 +1,7 @@
-{...}: {
+{inputs, ...}: {
+  imports = [
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+  ];
   # pipewire
   security.rtkit.enable = true;
   services.pipewire = {

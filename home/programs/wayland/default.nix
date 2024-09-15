@@ -15,6 +15,7 @@
     # slurp
 
     # utils
+    (pkgs.callPackage ../../../pkgs/wl-ocr {})
     wl-clipboard
     wl-screenrec
     wlr-randr

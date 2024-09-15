@@ -6,6 +6,7 @@
   ...
 }: let
   grimblast = inputs.hypr-contrib.packages.${pkgs.system}.grimblast;
+  runOnce = program: "pgrep ${program} || ${program}";
 in {
   imports = [
     inputs.hyprland.homeManagerModules.default
@@ -31,6 +32,7 @@ in {
           "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
           "$mod,code:56, exec, ${lib.getExe inputs.zen-browser.packages.${pkgs.system}.generic}"
           ",pause,exec,${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          "$mod, code:32, exec, ${runOnce "wl-ocr"}"
 
           "$mod, code:43,movefocus,l"
           "$mod, code:46,movefocus,r"

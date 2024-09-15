@@ -29,7 +29,7 @@ in {
 
           "$mod, return, exec, ${lib.getExe pkgs.kitty}"
           "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
-          "$mod,code:56, exec, ${lib.getExe pkgs.firefox}"
+          "$mod,code:56, exec, ${lib.getExe inputs.zen-browser.packages.${pkgs.system}.generic}"
           ",pause,exec,${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
           "$mod, code:43,movefocus,l"
@@ -113,6 +113,7 @@ in {
         "keepaspectratio,class:^(mpv)$"
         "workspace 3,class:^(vesktop)$"
         "workspace 2,class:^(firefox)$"
+        "workspace 2,class:^(zen.*)$"
         "immediate,class:^(osu!)$"
         "immediate,class:^(tf_linux64)$"
       ];

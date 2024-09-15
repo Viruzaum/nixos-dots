@@ -9,5 +9,6 @@
   home.packages = with pkgs; [
     mission-center
     jetbrains.idea-community
+    inputs.zen-browser.packages."${pkgs.system}".generic
   ];
 }

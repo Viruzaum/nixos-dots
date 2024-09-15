@@ -19,10 +19,24 @@
           xorg.libXinerama
           xorg.libXScrnSaver
 
+          openssl_1_1
+
           mangohud
         ];
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override ({extraLibraries ? pkgs': [], ...}: {
+        extraLibraries = pkgs':
+          (extraLibraries pkgs')
+          ++ [
+            pkgs'.gperftools
+          ];
+      });
+    })
+  ];
 
   programs.gamemode.enable = true;
 }

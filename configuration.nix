@@ -12,7 +12,6 @@
     ./system/wm/hyprland.nix
     ./system/wm/cosmic/cosmic.nix
     # ./system/wm/plasma/plasma.nix
-    # ./system/programs/flatpak.nix
     # ./system/wm/cinnamon.nix
     ./system/hardware/kernel.nix
     ./system/hardware/opengl.nix
@@ -20,7 +19,6 @@
     ./system/hardware/bluetooth.nix
     ./system/programs/default.nix
     ./system/programs/steam.nix
-    ./system/programs/prismlauncher.nix
     ./system/programs/games.nix
     ./system/services/sunshine.nix
     ./system/services/jellyfin.nix

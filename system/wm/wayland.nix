@@ -18,12 +18,9 @@ in {
   ];
 
   # Configure xwayland
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "chili";
-    };
+    wayland.enable = true;
+    theme = "chili";
   };
 }

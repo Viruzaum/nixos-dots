@@ -24,6 +24,7 @@
     ./system/programs/games.nix
     ./system/services/sunshine.nix
     ./system/services/jellyfin.nix
+    ./system/services/cloudflare-warp.nix
   ];
 
   # Bootloader.

@@ -27,6 +27,7 @@ in {
           "$mod, space, togglefloating"
           "$mod, code:33, pseudo"
           "$mod, code:55, togglesplit"
+          "$mod, code:53, pin"
 
           "$mod, return, exec, ${lib.getExe pkgs.kitty}"
           "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
@@ -72,6 +73,7 @@ in {
       ];
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_SIZE,32"
         "QT_QPA_PLATFORM,wayland;xcb"
         "XDG_SESSION_TYPE,wayland"
         "AQ_NO_ATOMIC,1"
@@ -99,7 +101,7 @@ in {
       ];
       input = {
         kb_layout = "br, br-workman";
-        kb_options = "caps:none, grp:alt_shift_toggle";
+        kb_options = "caps:none, grp:alt_space_toggle";
         accel_profile = "flat";
         follow_mouse = 1;
         sensitivity = 0;
@@ -118,6 +120,8 @@ in {
         "workspace 2,class:^(zen.*)$"
         "immediate,class:^(osu!)$"
         "immediate,class:^(tf_linux64)$"
+        "immediate,class:^(Minecraft*)$"
+        "immediate,class:^(hl2_linux)$"
       ];
       layerrule = [
         "blur,bar"

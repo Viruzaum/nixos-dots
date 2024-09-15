@@ -27,7 +27,7 @@ in {
           "$mod, code:33, pseudo"
           "$mod, code:55, togglesplit"
 
-          "$mod, return, exec, ${lib.getExe pkgs.alacritty}"
+          "$mod, return, exec, ${lib.getExe pkgs.kitty}"
           "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
           "$mod,code:56, exec, ${lib.getExe pkgs.firefox}"
           ",pause,exec,${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"

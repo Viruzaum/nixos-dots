@@ -194,7 +194,7 @@
   };
 
   system.activationScripts.scripts.text = ''
-    cp /home/viruz/a/@home/viruz/Pictures/938f6b2a20e63f673dc865129eaa83a8.png /var/lib/AccountsService/icons/viruz
+    cp /home/viruz/Downloads/cat.png /var/lib/AccountsService/icons/viruz
   '';
 
   # Open ports in the firewall.

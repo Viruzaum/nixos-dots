@@ -26,8 +26,8 @@
     ../modules/theme
     ./terminal
     ./programs
-    ./programs/wayland/hyprland/hyprland.nix
-    ./services/ags
+    ./programs/wayland/default.nix
+    # ./services/ags
     ./services/system/syncthing.nix
     ./editors/helix/default.nix
     inputs.nix-index-database.hmModules.nix-index

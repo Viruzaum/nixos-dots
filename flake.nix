@@ -11,10 +11,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # ags = {
+    #   url = "github:Aylur/ags";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +38,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    waybar.url = "github:Alexays/Waybar";
+    # waybar.url = "github:Alexays/Waybar";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +54,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -65,8 +66,11 @@
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import inputs.nixpkgs {
-      overlays = [inputs.nur.overlay];
-      system = system;
+      inherit system;
+      overlays = [
+        inputs.nur.overlay
+        inputs.hyprpanel.overlay
+      ];
       config.allowUnfree = true;
     };
   in {

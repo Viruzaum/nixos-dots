@@ -9,8 +9,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ./system/wm/hyprland.nix
     # ./system/wm/cosmic/cosmic.nix
+    ./system/wm/hyprland.nix
     # ./system/wm/plasma/plasma.nix
     ./system/wm/cinnamon.nix
     # ./system/programs/flatpak.nix

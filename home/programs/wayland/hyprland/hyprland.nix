@@ -92,7 +92,7 @@ in {
         no_warps = false;
       };
       exec-once = [
-        "waybar"
+        "${lib.getExe pkgs.hyprpanel}"
         "fcitx5 -d"
         "nicotine-plus -s"
         "vesktop"

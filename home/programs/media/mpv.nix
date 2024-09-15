@@ -10,6 +10,8 @@
       ytdl-raw-options = "force-ipv4=,format=bestvideo[height<=1080]+bestaudio/best[height<=1080]";
       volume = 100;
       no-osc = "";
+      keepaspect = "yes";
+      keepaspect-window = "yes";
     };
     # scripts = [
     # (pkgs.callPackage ./../../../pkgs/mpv-progressbar {})

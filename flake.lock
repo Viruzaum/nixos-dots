@@ -758,6 +758,9 @@
         "type": "github"
       }
     },
+        "repo": "HyprPanel",
+        "rev": "bb3b3dfdfbde1bb3f7199a0625b513c4dec5d2cc",
+        "type": "github"
     "hyprpaper": {
       "inputs": {
         "hyprlang": "hyprlang_5",

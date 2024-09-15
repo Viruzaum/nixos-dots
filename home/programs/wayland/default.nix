@@ -5,7 +5,7 @@
 # Wayland config
 {
   imports = [
-    ./hyprland
+    ./hyprland/hyprland.nix
     # ./hyprlock.nix
   ];
 

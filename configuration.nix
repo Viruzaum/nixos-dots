@@ -9,11 +9,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # ./system/wm/cosmic/cosmic.nix
     ./system/wm/hyprland.nix
+    ./system/wm/cosmic/cosmic.nix
     # ./system/wm/plasma/plasma.nix
-    ./system/wm/cinnamon.nix
     # ./system/programs/flatpak.nix
+    # ./system/wm/cinnamon.nix
     ./system/hardware/kernel.nix
     ./system/hardware/opengl.nix
     ./system/hardware/keyboard.nix
@@ -148,9 +148,6 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -185,12 +182,9 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    wayland.enable = true;
   };
 
   system.activationScripts.scripts.text = ''
@@ -227,11 +221,11 @@
   nix.optimise.automatic = true;
   nix.optimise.dates = ["22:00"];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "-d";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "-d";
+  # };
 
   system.autoUpgrade = {
     enable = true;

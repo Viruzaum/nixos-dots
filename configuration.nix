@@ -10,9 +10,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./system/wm/hyprland.nix
-    ./system/wm/cosmic/cosmic.nix
+    # ./system/wm/cosmic/cosmic.nix
     # ./system/wm/plasma/plasma.nix
-    # ./system/wm/cinnamon.nix
+    ./system/wm/cinnamon.nix
     ./system/hardware/kernel.nix
     ./system/hardware/opengl.nix
     ./system/hardware/keyboard.nix
@@ -187,10 +187,10 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+ # services.displayManager.sddm = {
+ #   enable = true;
+ #   wayland.enable = false;
+ # };
 
   system.activationScripts.scripts.text = ''
     cp /home/viruz/Downloads/cat.png /var/lib/AccountsService/icons/viruz

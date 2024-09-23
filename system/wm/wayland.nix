@@ -20,7 +20,7 @@ in {
   # Configure xwayland
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland.enable = false;
     theme = "chili";
   };
 }

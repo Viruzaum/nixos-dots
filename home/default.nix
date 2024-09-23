@@ -42,7 +42,6 @@
     (vesktop.override {
       withSystemVencord = false;
     })
-    firefox
     anki-bin
     noto-fonts-cjk-sans
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin

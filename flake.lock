@@ -1008,11 +1008,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731277431,
-        "narHash": "sha256-1CqtAloD8b54KJJGZoOPOBPAItKyFywk6OiPBX73WMw=",
+        "lastModified": 1732669451,
+        "narHash": "sha256-RIRIajy7O9hfE4SfAzYKDdgwNqYJO2+cV4FDEX+g9hg=",
         "owner": "viruzaum",
         "repo": "HyprPanel",
-        "rev": "a620c679cc6d61bca8432dd13df28050af9041c6",
+        "rev": "116d7738fb12a7e63b7a83ea404da74af9eb9bf4",
         "type": "github"
       },
       "original": {

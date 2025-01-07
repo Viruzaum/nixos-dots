@@ -120,5 +120,7 @@
     };
   };
 
+  stylix.targets.helix.enable = false;
+
   programs.home-manager.enable = true;
 }

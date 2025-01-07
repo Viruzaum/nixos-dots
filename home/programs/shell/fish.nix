@@ -6,9 +6,9 @@ in {
   programs.fish = {
     enable = true;
     shellAliases = myAliases;
-    # functions = {
-    #   fish_greeting = "fastfetch";
-    # };
+    functions = {
+      fish_greeting = "";
+    };
   };
 
   programs.direnv = {

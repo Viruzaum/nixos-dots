@@ -3,13 +3,13 @@
   config,
   pkgs,
   lib,
-  self,
   ...
 }: let
   inherit (inputs.hypr-contrib.packages.${pkgs.system}) grimblast;
   inherit (inputs.pyprland.packages.${pkgs.system}) pyprland;
   runOnce = program: "pgrep ${program} || ${program}";
   jq = lib.getExe pkgs.jq;
+  zen-browser = lib.getExe inputs.zen-browser.packages.${pkgs.system}.zen-browser;
 
   inherit (config.var.theme) border-size;
   inherit (config.var.theme) gaps-in;
@@ -42,9 +42,6 @@ in {
     systemd.enable = true;
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-    plugins = [
-    ];
-
     settings = {
       plugin = {
         dynamic-cursors = {
@@ -69,7 +66,7 @@ in {
           "$mod, return, exec, ${lib.getExe pkgs.kitty}"
           # "$mod,code:40, exec, ${lib.getExe pkgs.fuzzel}"
           "$mod,code:40, exec, ${lib.getExe inputs.anyrun.packages.${pkgs.system}.anyrun}"
-          "$mod,code:56, exec, ${lib.getExe inputs.zen-browser.packages.${pkgs.system}.generic}"
+          "$mod,code:56, exec, ${zen-browser}"
           ",pause,exec,${lib.getExe' pkgs.wireplumber "wpctl"} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
           "$mod, code:32, exec, ${runOnce "wl-ocr"}"
 

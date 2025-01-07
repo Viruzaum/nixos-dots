@@ -63,7 +63,7 @@
       .nekocord
       bitwarden # Password manager
       blanket # White-noise app
-      inputs.zen-browser.packages."${pkgs.system}".generic
+      inputs.zen-browser.packages."${pkgs.system}".zen-browser
       anki-bin
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
       deluge-gtk

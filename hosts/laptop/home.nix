@@ -9,12 +9,12 @@
     ./variables.nix
 
     # Programs
-    ../../home/programs/kitty
     ../../home/programs/helix
     ../../home/programs/shell
     ../../home/programs/nushell
     ../../home/programs/fastfetch
     ../../home/programs/git
+    ../../home/programs/kitty
     ../../home/programs/mpv
     ../../home/programs/mpd
     ../../home/programs/beets

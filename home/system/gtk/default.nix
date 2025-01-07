@@ -21,13 +21,13 @@
     #};
 
     iconTheme = {
-      name = "rose-pine-icons";
-      package = pkgs.rose-pine-icon-theme;
+      name = "gruvbox-dark-icons";
+      package = pkgs.gruvbox-dark-icons-gtk;
     };
 
     theme = lib.mkForce {
-      name = "rose-pine-gtk";
-      package = pkgs.rose-pine-gtk-theme;
+      name = "gruvbox-dark";
+      package = pkgs.gruvbox-dark-gtk;
     };
 
     gtk3.extraConfig = {gtk-application-prefer-dark-theme = 1;};

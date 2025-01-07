@@ -36,7 +36,7 @@
     ../../home/system/hyprlock
     ../../home/system/hyprpanel
     ../../home/system/hyprpaper
-    ../../home/system/gtk
+    # ../../home/system/gtk
     ../../home/system/xdg
 
     inputs.agenix.homeManagerModules.age

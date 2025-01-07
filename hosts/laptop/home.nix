@@ -17,7 +17,7 @@
     ../../home/programs/kitty
     ../../home/programs/mpv
     ../../home/programs/mpd
-    ../../home/programs/beets
+    # ../../home/programs/beets # FIXME: broken
     ../../home/programs/lazygit
     ../../home/programs/nh
     ../../home/programs/syncthing
@@ -53,9 +53,11 @@
       }) # Chat
       (inputs.nekocord.lib.patch pkgs {
         install.openasar = true;
+        install.vencord = true;
+        install.renameAsar = "vencord.asar";
         version = {
           branch = "dev";
-          buildId = 371;
+          buildId = 398;
           hash = "sha256-kRjZs1m7hGobBQ2xBzDJKVSRRTUelNIdOkm0m8VeSX0=";
         };
       })
@@ -72,7 +74,7 @@
       zapzap
       gimp
       syncplay
-      inputs.umu.packages.${pkgs.system}.umu
+      # inputs.umu.packages.${pkgs.system}.umu
       lutris
       zed-editor
       nixd

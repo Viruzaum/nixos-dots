@@ -1,7 +1,7 @@
 _: {
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/viruz/a/@home/viruz/music";
+    musicDirectory = "/home/viruz/music";
     extraConfig = ''
       audio_output {
         type "pipewire"
@@ -15,6 +15,6 @@ _: {
 
   programs.ncmpcpp = {
     enable = true;
-    mpdMusicDir = "/home/viruz/a/@home/viruz/music";
+    mpdMusicDir = "/home/viruz/music";
   };
 }

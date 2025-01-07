@@ -26,7 +26,7 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home/viruz/a" = {
+  fileSystems."/home/viruz" = {
     device = "/dev/disk/by-uuid/f89aa2f2-51dd-4a54-b8f0-b2f164f0ccfd";
     fsType = "btrfs";
   };

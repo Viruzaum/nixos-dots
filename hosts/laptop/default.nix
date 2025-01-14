@@ -27,6 +27,8 @@
     ../../nixos/xdg-portal.nix
     ../../nixos/otd.nix
     ../../nixos/variables-config.nix
+    ../../nixos/zram.nix
+
     ../../themes/stylix/stylix.nix
 
     ./hardware-configuration.nix

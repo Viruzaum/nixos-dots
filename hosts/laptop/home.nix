@@ -26,6 +26,7 @@
     ../../home/programs/fcitx5
     ../../home/programs/anyrun
     ../../home/programs/nix-index
+    ../../home/programs/thefuck
 
     # Scripts
     #../../home/scripts # All scripts

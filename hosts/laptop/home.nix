@@ -96,6 +96,7 @@
       inputs.agenix.packages.${pkgs.system}.default
       tealdeer
       zellij
+      android-studio
 
       # Utils
       zip

@@ -27,6 +27,7 @@
     ../../home/programs/anyrun
     ../../home/programs/nix-index
     ../../home/programs/thefuck
+    ../../home/programs/thunderbird
 
     # Scripts
     #../../home/scripts # All scripts

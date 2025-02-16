@@ -61,7 +61,7 @@
         version = {
           branch = "dev";
           buildId = 398;
-          hash = "sha256-kRjZs1m7hGobBQ2xBzDJKVSRRTUelNIdOkm0m8VeSX0=";
+          hash = "sha256-MBuZmpcLlWMEJ3e6IWFTRDSTp3L+FctnO3EFz2CvwIg=";
         };
       })
       .build

@@ -15,6 +15,7 @@
     ../../nixos/network-manager.nix
     ../../nixos/jellyfin.nix
     ../../nixos/nix.nix
+    ../../nixos/printer.nix
     ../../nixos/power.nix
     ../../nixos/sonarr.nix
     ../../nixos/steam.nix

@@ -52,6 +52,7 @@
       # Apps
       (vesktop.override {
         withSystemVencord = false;
+        electron = pkgs.electron_33;
       }) # Chat
       (inputs.nekocord.lib.patch pkgs {
         install.openasar = true;

@@ -33,7 +33,6 @@ in {
     rm-improved
     moar
     ripgrep
-    diskonaut
     du-dust
     nix-init
   ];

@@ -77,7 +77,7 @@
       zapzap
       gimp
       syncplay
-      # inputs.umu.packages.${pkgs.system}.umu
+      inputs.umu.packages.${pkgs.system}.umu-launcher
       lutris
       zed-editor
       nixd

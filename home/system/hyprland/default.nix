@@ -98,10 +98,10 @@ in {
             10)
         );
       bindl = [
-        ",print,exec,${lib.getExe grimblast} --notify --freeze copysave area \"$XDG_SCREENSHOTS_DIR/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | ${jq} -r .class).png\""
-        "SHIFT,print,exec,${lib.getExe grimblast} --notify copysave active \"$XDG_SCREENSHOTS_DIR/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | ${jq} -r .class).png\""
-        "CTRL,print,exec,${lib.getExe grimblast} --notify copysave output \"$XDG_SCREENSHOTS_DIR/$(date +'%F_%H_%M_%S')_$(hyprctl monitors -j | ${jq} -r \".[$(hyprctl activewindow -j | ${jq} -r .monitor)].name\").png\""
-        "ALT,print,exec,${lib.getExe grimblast} --notify copysave screen \"$XDG_SCREENSHOTS_DIR/$(date +'%F_%H_%M_%S').png\""
+        ",print,exec,${lib.getExe grimblast} --notify --freeze copysave area \"/home/viruz/pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | ${jq} -r .class).png\""
+        "SHIFT,print,exec,${lib.getExe grimblast} --notify copysave active \"/home/viruz/pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl activewindow -j | ${jq} -r .class).png\""
+        "CTRL,print,exec,${lib.getExe grimblast} --notify copysave output \"/home/viruz/pictures/screenshots/$(date +'%F_%H_%M_%S')_$(hyprctl monitors -j | ${jq} -r \".[$(hyprctl activewindow -j | ${jq} -r .monitor)].name\").png\""
+        "ALT,print,exec,${lib.getExe grimblast} --notify copysave screen \"/home/viruz/pictures/screenshots/$(date +'%F_%H_%M_%S').png\""
       ];
       bindm = [
         "$mod,mouse:272,movewindow"

@@ -17,7 +17,7 @@
     ../../home/programs/kitty
     ../../home/programs/mpv
     ../../home/programs/mpd
-    # ../../home/programs/beets # FIXME: broken
+    ../../home/programs/beets
     ../../home/programs/lazygit
     ../../home/programs/nh
     ../../home/programs/syncthing

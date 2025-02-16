@@ -33,13 +33,13 @@
     #../../home/scripts # All scripts
 
     # System (Desktop environment like stuff)
-    ../../home/system/hyprland
-    ../../home/system/hypridle
-    ../../home/system/hyprlock
-    ../../home/system/hyprpanel
-    ../../home/system/hyprpaper
+    # ../../home/system/hyprland
+    # ../../home/system/hypridle
+    # ../../home/system/hyprlock
+    # ../../home/system/hyprpanel
+    # ../../home/system/hyprpaper
     # ../../home/system/gtk
-    ../../home/system/xdg
+    # ../../home/system/xdg
 
     inputs.agenix.homeManagerModules.age
   ];

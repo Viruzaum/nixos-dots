@@ -23,19 +23,19 @@ in {
   imports = [./polkitagent.nix];
 
   home.packages = with pkgs; [
-    qt5.qtwayland
-    qt6.qtwayland
-    libsForQt5.qt5ct
-    qt6ct
+    # qt5.qtwayland
+    # qt6.qtwayland
+    # libsForQt5.qt5ct
+    # qt6ct
     hyprpicker
     wl-clipboard
     wl-screenrec
     wlr-randr
     wev
-    imv
     brightnessctl
     wl-kbptr
     wlrctl
+    resources
   ];
 
   wayland.windowManager.hyprland = {
@@ -45,13 +45,6 @@ in {
     # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     settings = {
-      plugin = {
-        dynamic-cursors = {
-          enabled = true;
-          mode = "tilt";
-          threshold = 2;
-        };
-      };
       "$mod" = "SUPER";
       bind =
         [
@@ -128,7 +121,7 @@ in {
         gaps_in = gaps-in;
         gaps_out = gaps-out;
 
-        allow_tearing = false;
+        allow_tearing = true;
       };
       cursor = {
         inactive_timeout = 30;
@@ -140,7 +133,6 @@ in {
         "nicotine-plus -s"
         "vesktop"
         "deluged"
-        # "~/.local/bin/jellyfin-rpc"
         (lib.getExe pkgs.jellyfin-rpc)
         (lib.getExe' pyprland "pypr")
       ];

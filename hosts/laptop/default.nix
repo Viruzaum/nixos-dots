@@ -8,6 +8,7 @@
     ../../nixos/audio.nix
     ../../nixos/auto-upgrade.nix
     ../../nixos/bluetooth.nix
+    ../../nixos/cosmic.nix
     ../../nixos/fonts.nix
     ../../nixos/home-manager.nix
     ../../nixos/intel.nix
@@ -19,7 +20,7 @@
     ../../nixos/steam.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/timezone.nix
-    ../../nixos/tuigreet.nix
+    # ../../nixos/tuigreet.nix
     ../../nixos/tailscale.nix
     ../../nixos/users.nix
     ../../nixos/nix-ld.nix
@@ -37,6 +38,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.agenix.nixosModules.default
     inputs.chaotic.nixosModules.default
+    inputs.nixos-cosmic.nixosModules.default
   ];
 
   age = {

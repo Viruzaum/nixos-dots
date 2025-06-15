@@ -16,7 +16,7 @@
     kernelPackages =
       pkgs.linuxPackages_cachyos; # _zen, _hardened, _rt, _rt_latest, etc.
 
-    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+    # extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
 
     kernel.sysctl."kernel.sysrq" = 1;
 

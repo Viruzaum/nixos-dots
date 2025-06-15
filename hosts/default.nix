@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  withSystem,
   ...
 }: {
   flake.nixosConfigurations = let
@@ -8,19 +9,26 @@
 
     specialArgs = {inherit inputs self;};
   in {
-    mimi = nixosSystem {
-      inherit specialArgs;
-      modules = [
-        ./laptop
-        "${self}/pkgs"
+    mimi = withSystem "x86_64-linux" ({
+      pkgs,
+      system,
+      ...
+    }:
+      nixosSystem {
+        inherit specialArgs;
+        modules = [
+          ./mimi
+          "${self}/pkgs"
 
-        {
-          home-manager = {
-            extraSpecialArgs = specialArgs;
-            backupFileExtension = ".hm-backup";
-          };
-        }
-      ];
-    };
+          inputs.nur.modules.nixos.default
+
+          {
+            home-manager = {
+              extraSpecialArgs = specialArgs;
+              backupFileExtension = ".hm-backup";
+            };
+          }
+        ];
+      });
   };
 }

@@ -22,17 +22,18 @@
     ../../home/programs/nh
     ../../home/programs/syncthing
     ../../home/programs/mangohud
+    ../../home/programs/mako
     ../../home/programs/kdeconnect
     ../../home/programs/fcitx5
-    ../../home/programs/anyrun
     ../../home/programs/nix-index
-    ../../home/programs/thefuck
     ../../home/programs/thunderbird
 
     # Scripts
     #../../home/scripts # All scripts
 
     # System (Desktop environment like stuff)
+    ../../home/system/niri
+    ../../home/system/quickshell
     # ../../home/system/hyprland
     # ../../home/system/hypridle
     # ../../home/system/hyprlock
@@ -52,12 +53,10 @@
       # Apps
       (vesktop.override {
         withSystemVencord = false;
-        electron = pkgs.electron_33;
+        # electron = pkgs.electron_33;
       }) # Chat
       (inputs.nekocord.lib.patch pkgs {
         install.openasar = true;
-        install.vencord = true;
-        install.renameAsar = "vencord.asar";
         version = {
           branch = "dev";
           buildId = 398;
@@ -67,8 +66,7 @@
       .build
       .nekocord
       bitwarden # Password manager
-      blanket # White-noise app
-      inputs.zen-browser.packages."${pkgs.system}".zen-browser
+      inputs.zen-browser.packages.${pkgs.system}.zen-browser
       anki-bin
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
       deluge-gtk
@@ -77,16 +75,13 @@
       zapzap
       gimp
       syncplay
-      inputs.umu.packages.${pkgs.system}.umu-launcher
+      # inputs.umu.packages.${pkgs.system}.umu-launcher
       lutris
       zed-editor
       nixd
       libreoffice
-      # modrinth-app
+      # libreoffice
       prismlauncher
-      telegram-desktop
-      cantata
-      cartridges
       rustup
       nil
       alejandra
@@ -96,7 +91,8 @@
       inputs.agenix.packages.${pkgs.system}.default
       tealdeer
       zellij
-      android-studio
+      nur.repos.ataraxiasjel.waydroid-script
+      cinny-desktop
 
       # Utils
       zip
@@ -118,12 +114,6 @@
 
     # Don't touch this
     stateVersion = "23.11";
-  };
-
-  age = {
-    secrets.weatherapi = {
-      file = "${self}/secrets/weatherapi.age";
-    };
   };
 
   stylix.targets.helix.enable = false;

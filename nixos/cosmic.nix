@@ -1,15 +1,20 @@
 {pkgs, ...}: {
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    chronos
-    cosmic-reader
-    examine
-    observatory
-    cosmic-ext-calculator
-    cosmic-ext-applet-clipboard-manager
-  ];
+  # environment.systemPackages = with pkgs; [
+  # cosmic-ext-calculator
+  # forecast
+  # tasks
+  # cosmic-ext-tweaks
+  # seahorse
+  # chronos
+  # cosmic-reader
+  # examine
+  # observatory
+  # cosmic-ext-calculator
+  # cosmic-ext-applet-clipboard-manager
+  # ];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       logo = {
-        source = ../../../hosts/laptop/profile_picture.png;
+        source = ../../../hosts/mimi/profile_picture.png;
         height = 9;
       };
       display = {

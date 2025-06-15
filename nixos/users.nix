@@ -11,7 +11,7 @@ in {
     users.${username} = {
       isNormalUser = true;
       description = "${username} account";
-      extraGroups = ["networkmanager" "wheel" "scanner" "lp"];
+      extraGroups = ["networkmanager" "wheel" "scanner" "lp" "vboxusers"];
     };
   };
 }

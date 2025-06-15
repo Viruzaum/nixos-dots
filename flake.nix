@@ -9,7 +9,11 @@
         ./hosts
       ];
 
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.alejandra
@@ -33,6 +37,9 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-olympus.url = "github:Petingoso/nixpkgs/olympus";
+
+    kuroneko.url = "path:/home/viruz/kuroneko";
 
     # other stuff in alphabetical order
 
@@ -136,16 +143,34 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pyprland.url = "github:hyprland-community/pyprland";
+
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell?ref=v0.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     umu = {
       url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

@@ -30,7 +30,6 @@
     # global stuff that are followed
 
     systems.url = "github:nix-systems/default-linux";
-
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -39,7 +38,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-olympus.url = "github:Petingoso/nixpkgs/olympus";
 
-    kuroneko.url = "path:/home/viruz/kuroneko";
+    kuroneko.url = "git+ssh://git@github.com/Viruzaum/kuroneko.git";
 
     # other stuff in alphabetical order
 

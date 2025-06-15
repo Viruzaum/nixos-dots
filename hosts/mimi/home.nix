@@ -33,7 +33,7 @@
 
     # System (Desktop environment like stuff)
     ../../home/system/niri
-    ../../home/system/quickshell
+    # ../../home/system/quickshell
     # ../../home/system/hyprland
     # ../../home/system/hypridle
     # ../../home/system/hyprlock

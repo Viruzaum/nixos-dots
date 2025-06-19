@@ -29,7 +29,6 @@
           {proportion = 1. / 3.;}
           {proportion = 1. / 2.;}
           {proportion = 2. / 3.;}
-          {proportion = 1.0;}
         ];
       };
       screenshot-path = "/home/viruz/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png";

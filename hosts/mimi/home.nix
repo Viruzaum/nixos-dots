@@ -93,6 +93,7 @@
       zellij
       nur.repos.ataraxiasjel.waydroid-script
       cinny-desktop
+      olympus
 
       # Utils
       zip

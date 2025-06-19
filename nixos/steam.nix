@@ -46,12 +46,7 @@
           ];
       });
     })
-    (final: prev: {
-      inherit (inputs.nixpkgs-olympus.legacyPackages.${prev.system}) olympus;
-    })
   ];
-
-  environment.systemPackages = [pkgs.olympus];
 
   # Fix Devil Daggers
   nixpkgs.config.permittedInsecurePackages = [

@@ -36,7 +36,6 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-olympus.url = "github:Petingoso/nixpkgs/olympus";
 
     kuroneko.url = "git+ssh://git@github.com/Viruzaum/kuroneko.git";
 

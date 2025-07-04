@@ -66,7 +66,7 @@
       .build
       .nekocord
       bitwarden # Password manager
-      inputs.zen-browser.packages.${pkgs.system}.zen-browser
+      inputs.zen-browser.packages.${pkgs.system}.default
       anki-bin
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
       deluge-gtk
@@ -94,6 +94,8 @@
       nur.repos.ataraxiasjel.waydroid-script
       cinny-desktop
       olympus
+      telegram-desktop
+      mission-center
 
       # Utils
       zip

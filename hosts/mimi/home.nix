@@ -40,7 +40,7 @@
     # ../../home/system/hyprpanel
     # ../../home/system/hyprpaper
     # ../../home/system/gtk
-    # ../../home/system/xdg
+    ../../home/system/xdg
 
     inputs.agenix.homeManagerModules.age
   ];

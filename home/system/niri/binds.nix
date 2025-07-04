@@ -29,14 +29,16 @@
     "Mod+R".action = switch-preset-column-width;
     "Mod+Shift+P".action = power-off-monitors;
     "Mod+I".action = show-hotkey-overlay;
+    "Mod+O".action = toggle-overview;
     "Mod+Shift+E".action = quit;
 
-    # "Mod+Insert".action = set-dynamic-cast-window;
-    # "Mod+Shift+Insert".action = set-dynamic-cast-monitor;
-    # "Mod+Delete".action = clear-dynamic-cast-target;
+    "Mod+Insert".action = set-dynamic-cast-window;
+    "Mod+Shift+Insert".action = set-dynamic-cast-monitor;
+    "Mod+Delete".action = clear-dynamic-cast-target;
 
     "Mod+Q".action = close-window;
     "Mod+F".action = maximize-column;
+    "Mod+Ctrl+F".action = expand-column-to-available-width;
     "Mod+Shift+F".action = fullscreen-window;
     "Mod+Space".action = toggle-window-floating;
     "Mod+W".action = toggle-column-tabbed-display;

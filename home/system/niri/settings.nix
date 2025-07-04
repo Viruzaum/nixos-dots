@@ -21,7 +21,7 @@
       input = {
         keyboard.xkb.layout = "br";
         focus-follows-mouse.enable = true;
-        warp-mouse-to-focus = true;
+        warp-mouse-to-focus.enable = true;
       };
       layout = {
         default-column-width.proportion = 1.0;
@@ -30,13 +30,15 @@
           {proportion = 1. / 2.;}
           {proportion = 2. / 3.;}
         ];
+        background-color = "transparent";
       };
+      overview.workspace-shadow.enable = false;
       screenshot-path = "/home/viruz/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png";
       outputs = {
         "LVDS-1" = {
-          scale = 1.0;
+          enable = true;
         };
-        "HDMI-A-1".enable = false;
+        "HDMI-A-1".enable = true;
       };
       clipboard.disable-primary = true;
       prefer-no-csd = true;

@@ -208,8 +208,8 @@ in {
     window-rules = windowRules;
     layer-rules = [
       {
-        matches = [{namespace = "^swww$";}];
-        # place-within-backdrop = true;
+        matches = [{namespace = "^swww-daemon$";}];
+        place-within-backdrop = true;
       }
     ];
   };

@@ -3,6 +3,7 @@ _: {
     enable = true;
     # enableSessionWide = true;
     settings = {
+      preset = 2;
       fps = true;
       frametime = true;
       ram = true;

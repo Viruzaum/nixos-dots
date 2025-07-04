@@ -48,15 +48,6 @@
         {app-id = "zen";}
         {app-id = "firefox";}
         {app-id = "chromium-browser";}
-        {app-id = "xdg-desktop-portal-gtk";}
-      ];
-      scroll-factor = 0.2;
-    }
-    {
-      matches = [
-        {app-id = "zen";}
-        {app-id = "firefox";}
-        {app-id = "chromium-browser";}
         {app-id = "edge";}
       ];
       open-maximized = true;

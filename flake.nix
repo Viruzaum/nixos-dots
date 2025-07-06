@@ -37,7 +37,7 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    kuroneko.url = "git+ssh://git@github.com/Viruzaum/kuroneko.git";
+    kuroneko.url = "git+ssh://git@codeberg.org/viruz/kuroneko.git";
 
     # other stuff in alphabetical order
 

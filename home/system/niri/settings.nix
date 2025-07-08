@@ -22,6 +22,7 @@
         keyboard.xkb.layout = "br";
         focus-follows-mouse.enable = true;
         warp-mouse-to-focus.enable = true;
+        focus-follows-mouse.max-scroll-amount = "0%";
       };
       layout = {
         default-column-width.proportion = 1.0;

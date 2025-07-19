@@ -29,6 +29,7 @@ in {
     languages = {
       language-server = {
         nil.command = "${pkgs.nil}/bin/nil";
+        nixd.command = "${pkgs.nixd}/bin/nixd";
         rust-analyzer.config = {
           check.command = "clippy";
         };
@@ -37,7 +38,7 @@ in {
         {
           name = "nix";
           auto-format = true;
-          language-servers = [{name = "nil";}];
+          language-servers = [{name = "nixd";} {name = "nil";}];
           formatter.command = "${pkgs.alejandra}/bin/alejandra";
         }
         {

@@ -9,14 +9,11 @@
         ./hosts
       ];
 
-      perSystem = {
-        pkgs,
-        system,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.alejandra
+            pkgs.nixd
             pkgs.git
           ];
           name = "dots";

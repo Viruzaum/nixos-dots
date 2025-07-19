@@ -23,7 +23,7 @@
     "Print".action = screenshot;
     "Ctrl+Print".action.screenshot-screen = [];
     "Shift+Print".action = screenshot-window;
-    "Mod+D".action = spawn "fuzzel";
+    "Mod+D".action = spawn "walker";
     "Mod+B".action = spawn "zen";
     "Mod+Return".action = spawn "kitty";
     "Mod+R".action = switch-preset-column-width;

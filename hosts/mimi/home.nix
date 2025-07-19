@@ -2,7 +2,6 @@
   pkgs,
   config,
   inputs,
-  self,
   ...
 }: {
   imports = [
@@ -27,6 +26,7 @@
     ../../home/programs/fcitx5
     ../../home/programs/nix-index
     ../../home/programs/thunderbird
+    ../../home/programs/walker
 
     # Scripts
     #../../home/scripts # All scripts

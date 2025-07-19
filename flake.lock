@@ -623,65 +623,6 @@
         "type": "github"
       }
     },
-    "nekocord": {
-      "inputs": {
-        "nekocord-installer": "nekocord-installer",
-        "nekocord-latest": "nekocord-latest",
-        "nekocord-latest-dev": "nekocord-latest-dev",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733227503,
-        "narHash": "sha256-5KtPEaDoSRACDj1XBOj83C5Uzm9xMT1rVDGh34uoemU=",
-        "owner": "poollovernathan",
-        "repo": "nekocord",
-        "rev": "76ca4537dd0cc835faa476170610f7e706ea3d28",
-        "type": "github"
-      },
-      "original": {
-        "owner": "poollovernathan",
-        "repo": "nekocord",
-        "type": "github"
-      }
-    },
-    "nekocord-installer": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-/89LCtysKgmDN8jGR2lARC7eArnxrENAdiMCSuPZVo0=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord-installer/main/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord-installer/main/latest.json"
-      }
-    },
-    "nekocord-latest": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-mhdKEa3IesOeDvM/O9emhapfPzSB4joxLrZrMf4PA9Y=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/main/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/main/latest.json"
-      }
-    },
-    "nekocord-latest-dev": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-ovHRfdBzF4o12v/Th7UHAtc0yritTt1QKIThTiEO4Ns=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/dev/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/dev/latest.json"
-      }
-    },
     "nh": {
       "inputs": {
         "nixpkgs": [
@@ -1057,6 +998,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_9": {
+      "locked": {
+        "lastModified": 1747542820,
+        "narHash": "sha256-GaOZntlJ6gPPbbkTLjbd8BMWaDYafhuuYRNrxCGnPJw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "292fa7d4f6519c074f0a50394dbbe69859bb6043",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_5",
@@ -1192,7 +1149,6 @@
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager_2",
         "kuroneko": "kuroneko",
-        "nekocord": "nekocord",
         "nh": "nh",
         "niri": "niri",
         "nix-gaming": "nix-gaming",
@@ -1205,6 +1161,7 @@
         "stylix": "stylix",
         "systems": "systems_6",
         "umu": "umu",
+        "walker": "walker",
         "zen-browser": "zen-browser"
       }
     },
@@ -1460,6 +1417,21 @@
         "type": "github"
       }
     },
+    "systems_7": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
     "tinted-foot": {
       "flake": false,
       "locked": {
@@ -1607,6 +1579,25 @@
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Open-Wine-Components/umu-launcher/"
+      }
+    },
+    "walker": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_9",
+        "systems": "systems_7"
+      },
+      "locked": {
+        "lastModified": 1752599873,
+        "narHash": "sha256-YOmWsT1oxpCCXq20OW9cOU48Z1X+nypqmXqr0+KKXCA=",
+        "owner": "abenz1267",
+        "repo": "walker",
+        "rev": "821735a6a2f4284cd71995e4a1b3911f3caa4b21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenz1267",
+        "repo": "walker",
+        "type": "github"
       }
     },
     "xwayland-satellite-stable": {

@@ -53,19 +53,9 @@
       # Apps
       (vesktop.override {
         withSystemVencord = false;
-        # electron = pkgs.electron_33;
-      }) # Chat
-      (inputs.nekocord.lib.patch pkgs {
-        install.openasar = true;
-        version = {
-          branch = "dev";
-          buildId = 398;
-          hash = "sha256-MBuZmpcLlWMEJ3e6IWFTRDSTp3L+FctnO3EFz2CvwIg=";
-        };
       })
-      .build
-      .nekocord
-      bitwarden # Password manager
+      discord
+      bitwarden
       inputs.zen-browser.packages.${pkgs.system}.default
       anki-bin
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
@@ -73,43 +63,24 @@
       intel-gpu-tools
       nicotine-plus
       zapzap
-      gimp
       syncplay
       # inputs.umu.packages.${pkgs.system}.umu-launcher
       lutris
       zed-editor
-      nixd
-      libreoffice
-      # libreoffice
       prismlauncher
-      rustup
-      nil
-      alejandra
       statix
       manix
       deadnix
       inputs.agenix.packages.${pkgs.system}.default
       tealdeer
       zellij
-      nur.repos.ataraxiasjel.waydroid-script
+      # nur.repos.ataraxiasjel.waydroid-script
       cinny-desktop
       olympus
       telegram-desktop
       mission-center
-
-      # Utils
-      zip
-      unzip
-      optipng
-      pfetch
-      pandoc
+      modrinth-app
       btop
-
-      # Just cool
-      peaclock
-      cbonsai
-      pipes
-      cmatrix
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard

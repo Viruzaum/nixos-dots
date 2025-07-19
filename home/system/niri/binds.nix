@@ -53,22 +53,19 @@
     "Mod+Shift+Minus".action = set-window-height "-10%";
     "Mod+Shift+Plus".action = set-window-height "+10%";
 
-    "Mod+H".action = focus-column-left;
-    "Mod+L".action = focus-column-right;
+    "Mod+H".action = focus-column-or-monitor-left;
+    "Mod+L".action = focus-column-or-monitor-right;
     "Mod+J".action = focus-window-or-workspace-down;
     "Mod+K".action = focus-window-or-workspace-up;
-    "Mod+Left".action = focus-column-left;
-    "Mod+Right".action = focus-column-right;
+    "Mod+Left".action = focus-column-or-monitor-left;
+    "Mod+Right".action = focus-column-or-monitor-right;
     "Mod+Down".action = focus-workspace-down;
     "Mod+Up".action = focus-workspace-up;
 
-    "Mod+Ctrl+H".action = move-column-left;
-    "Mod+Ctrl+L".action = move-column-right;
+    "Mod+Ctrl+H".action = move-column-left-or-to-monitor-left;
+    "Mod+Ctrl+L".action = move-column-right-or-to-monitor-right;
     "Mod+Ctrl+K".action = move-column-to-workspace-up;
     "Mod+Ctrl+J".action = move-column-to-workspace-down;
-
-    "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
-    "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
 
     "Mod+WheelScrollDown" = {
       action = focus-workspace-down;

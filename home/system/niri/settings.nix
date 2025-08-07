@@ -12,6 +12,9 @@
     enable = true;
     package = pkgs.niri-stable;
     settings = {
+      debug = {
+        honor-xdg-activation-with-invalid-serial = {};
+      };
       environment = {
         DISPLAY = ":0";
       };

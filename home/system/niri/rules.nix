@@ -41,7 +41,10 @@
       };
     }
     {
-      matches = [{app-id = "org.telegram.desktop";}];
+      matches = [
+        {app-id = "org.telegram.desktop";}
+        {title = ".*Bitwarden.*";}
+      ];
       block-out-from = "screencast";
     }
     {
@@ -209,7 +212,7 @@ in {
     window-rules = windowRules;
     layer-rules = [
       {
-        matches = [{namespace = "^swww-daemon$";}];
+        matches = [{namespace = "^swww-daemon$";} {namespace = "^wallpaper$";}];
         place-within-backdrop = true;
       }
     ];

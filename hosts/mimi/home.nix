@@ -51,9 +51,10 @@
 
     packages = with pkgs; [
       # Apps
-      (vesktop.override {
-        withSystemVencord = false;
-      })
+      # (vesktop.override {
+      #   withSystemVencord = false;
+      # })
+      equibop
       discord
       bitwarden
       inputs.zen-browser.packages.${pkgs.system}.default
@@ -75,12 +76,13 @@
       tealdeer
       zellij
       # nur.repos.ataraxiasjel.waydroid-script
-      cinny-desktop
+      # cinny-desktop
       olympus
       telegram-desktop
       mission-center
       modrinth-app
       btop
+      nautilus
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard

@@ -11,6 +11,7 @@
       };
       clip-to-geometry = true;
       draw-border-with-background = false;
+      opacity = 0.93;
     }
     {
       matches = [

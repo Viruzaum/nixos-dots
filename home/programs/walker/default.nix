@@ -9,5 +9,26 @@
     enable = true;
     package = pkgs.walker;
     runAsService = true;
+    config = {
+      app_launch_prefix = "niri msg action spawn -- ";
+      terminal = "kitty";
+      builtins = {
+        applications = {};
+        bookmarks = {
+          entries = [
+            {
+              label = "Walker";
+              url = "https://github.com/abenz1267/walker";
+              keywords = ["walker"];
+            }
+          ];
+        };
+        calc = {
+          min_chars = 3;
+        };
+        clipboard = {};
+        windows = {};
+      };
+    };
   };
 }

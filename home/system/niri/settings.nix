@@ -17,9 +17,10 @@
       };
       environment = {
         DISPLAY = ":0";
+        QT_QPA_PLATFORMTHEME = "qt6ct";
       };
       spawn-at-startup = [
-        {command = ["${lib.getExe pkgs.xwayland-satellite}"];}
+        {command = ["${lib.getExe pkgs.xwayland-satellite}" ":0"];}
       ];
       input = {
         keyboard.xkb.layout = "br";
@@ -28,6 +29,7 @@
         focus-follows-mouse.max-scroll-amount = "0%";
       };
       layout = {
+        empty-workspace-above-first = true;
         default-column-width.proportion = 1.0;
         preset-column-widths = [
           {proportion = 1. / 3.;}

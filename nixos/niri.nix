@@ -18,12 +18,11 @@
 
   environment.variables = {
     NIXOS_OZONE_WL = "1";
-    XMODIFIERS = "@im=fcitx";
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
+    # XMODIFIERS = "@im=fcitx";
+    # GTK_IM_MODULE = "fcitx";
+    # QT_IM_MODULE = "fcitx";
   };
   environment.systemPackages = with pkgs; [
-    fuzzel
     wl-clipboard
     wayland-utils
     libsecret

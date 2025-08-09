@@ -19,7 +19,7 @@
         to = 1764;
       } # KDE Connect
     ];
-    allowedUDPPorts = [12315];
-    allowedTCPPorts = [12315];
+    allowedUDPPorts = [12315 22000];
+    allowedTCPPorts = [12315 20000];
   };
 }

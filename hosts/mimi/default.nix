@@ -7,22 +7,22 @@
   imports = [
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
-    ../../nixos/cosmic.nix
+    # ../../nixos/cosmic.nix
     # ../../nixos/deluge.nix
     ../../nixos/fonts.nix
     ../../nixos/home-manager.nix
     ../../nixos/intel.nix
     ../../nixos/network-manager.nix
     ../../nixos/jellyfin.nix
-    ../../nixos/niri.nix
+    # ../../nixos/niri.nix
     ../../nixos/nix.nix
-    ../../nixos/printer.nix
+    # ../../nixos/printer.nix
     ../../nixos/power.nix
     ../../nixos/openssh.nix
-    ../../nixos/ratbag.nix
+    # ../../nixos/ratbag.nix
     ../../nixos/sonarr.nix
-    ../../nixos/steam.nix
-    ../../nixos/sunshine.nix
+    # ../../nixos/steam.nix
+    # ../../nixos/sunshine.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/timezone.nix
     ../../nixos/tailscale.nix
@@ -30,9 +30,9 @@
     ../../nixos/nix-ld.nix
     ../../nixos/utils.nix
     # ../../nixos/xdg-portal.nix
-    ../../nixos/otd.nix
+    # ../../nixos/otd.nix
     ../../nixos/variables-config.nix
-    ../../nixos/waydroid.nix
+    # ../../nixos/waydroid.nix
     ../../nixos/zram.nix
 
     ../../themes/stylix/stylix.nix

@@ -5,22 +5,21 @@
   ...
 }: {
   imports = [
-    inputs.niri.homeModules.niri
+    # inputs.niri.homeModules.niri
   ];
 
   programs.niri = {
-    enable = true;
     package = pkgs.niri-stable;
     settings = {
       debug = {
         honor-xdg-activation-with-invalid-serial = {};
       };
       environment = {
-        DISPLAY = ":0";
         QT_QPA_PLATFORMTHEME = "qt6ct";
+        DISPLAY = ":16";
       };
       spawn-at-startup = [
-        {command = ["${lib.getExe pkgs.xwayland-satellite}" ":0"];}
+        {command = ["${lib.getExe pkgs.xwayland-satellite}" ":16"];}
       ];
       input = {
         keyboard.xkb.layout = "br";

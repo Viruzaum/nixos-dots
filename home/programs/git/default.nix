@@ -12,7 +12,7 @@ in {
       format = "ssh";
     };
     extraConfig = {
-      core.editor = "helix";
+      core.editor = "hx";
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;

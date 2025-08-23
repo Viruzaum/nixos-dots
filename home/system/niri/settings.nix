@@ -16,10 +16,11 @@
       };
       environment = {
         QT_QPA_PLATFORMTHEME = "qt6ct";
-        DISPLAY = ":16";
+        DISPLAY = ":3";
       };
       spawn-at-startup = [
-        {command = ["${lib.getExe pkgs.xwayland-satellite}" ":16"];}
+        {command = [(lib.getExe' pkgs.systemd "systemctl") "--user" "set-environment" "DISPLAY=:3"];}
+        {command = [(lib.getExe pkgs.xwayland-satellite) ":3"];}
       ];
       input = {
         keyboard.xkb.layout = "br";

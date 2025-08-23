@@ -10,7 +10,6 @@
     package = pkgs.walker;
     runAsService = true;
     config = {
-      app_launch_prefix = "niri msg action spawn -- ";
       terminal = "kitty";
       builtins = {
         applications = {};

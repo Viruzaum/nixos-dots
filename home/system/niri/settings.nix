@@ -16,6 +16,7 @@
       spawn-at-startup = [
         {command = [(lib.getExe' pkgs.systemd "systemctl") "--user" "set-environment" "DISPLAY=:3"];}
         {command = [(lib.getExe pkgs.xwayland-satellite) ":3"];}
+        {command = ["qs" "-c" "meow"];}
         {command = [(lib.getExe pkgs.fcitx5) "-d"];}
       ];
       input = {

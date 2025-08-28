@@ -25,7 +25,7 @@
       };
       layout = {
         empty-workspace-above-first = true;
-        default-column-width.proportion = 1.0;
+        default-column-width.proportion = 0.5;
         preset-column-widths = [
           {proportion = 1. / 3.;}
           {proportion = 1. / 2.;}

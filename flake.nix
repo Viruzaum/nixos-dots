@@ -1,7 +1,12 @@
 {
   description = "viruz Flake";
 
-  outputs = inputs @ {flake-parts, ...}:
+  outputs = inputs @ {
+    self,
+    flake-parts,
+    deploy-rs,
+    ...
+  }:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
@@ -15,11 +20,27 @@
             pkgs.alejandra
             pkgs.nixd
             pkgs.git
+            pkgs.deploy-rs
           ];
           name = "dots";
         };
 
         formatter = pkgs.alejandra;
+      };
+      flake = {
+        deploy.nodes = {
+          mimi = {
+            hostname = "mimi.tailb98376.ts.net";
+            sshUser = "viruz";
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.mimi;
+            };
+          };
+          # };
+        };
+
+        checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
       };
     };
 
@@ -55,6 +76,8 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    deploy-rs.url = "github:serokell/deploy-rs";
 
     # helix = {
     #   url = "github:helix-editor/helix";

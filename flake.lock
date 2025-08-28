@@ -538,11 +538,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1755951651,
-        "narHash": "sha256-8RdMWXDy+LrXPQIrtS0gxHTHnn8kckh+S1IDY8Jb41w=",
+        "lastModified": 1756342626,
+        "narHash": "sha256-6lWRcAxG4/PlLBuHq9MYSDgT885QQRULehc76gotXiU=",
         "ref": "refs/heads/main",
-        "rev": "b9542c47a3e2d14086956d78da355fc522865d22",
-        "revCount": 10,
+        "rev": "002455c958fac2c3239368af19d7f54fafa60e69",
+        "revCount": 12,
         "type": "git",
         "url": "ssh://git@codeberg.org/viruz/kuroneko.git"
       },

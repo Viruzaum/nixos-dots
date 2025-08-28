@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  self,
+  ...
+}: {
   programs.mpv = {
     enable = true;
     config = {
@@ -17,5 +21,9 @@
       pkgs.mpvScripts.mpvacious
       pkgs.mpvScripts.mpris
     ];
+  };
+  services.jellyfin-mpv-shim = {
+    enable = true;
+    mpvConfig = self.nixosConfigurations.yun.config.home-manager.users.viruz.programs.mpv.config;
   };
 }

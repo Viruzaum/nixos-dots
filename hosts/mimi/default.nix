@@ -2,8 +2,11 @@
   inputs,
   config,
   self,
+  lib,
   ...
-}: {
+}: let
+  inherit (lib) mapAttrs mkForce;
+in {
   imports = [
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
@@ -46,8 +49,18 @@
     inputs.kuroneko.nixosModules.default
   ];
 
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
+  boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+
+  security.sudo.wheelNeedsPassword = false;
+
+  users.users.viruz.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII0Rif5a4pyP54S5L1ELnoBWgTL1ipjqb43rhCWCcz3z viruz@yun"
+  ];
+
+  nixpkgs.config.allowInsecurePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "broadcom-sta" # aka “wl”
+    ];
 
   services.kuroneko = {
     enable = true;
@@ -55,11 +68,60 @@
     dataDir = "/home/viruz/kuroneko";
   };
 
+  services.xserver.enable = mkForce false;
+
+  # print the URL instead on servers
+  environment.variables.BROWSER = "echo";
+
+  # we don't need fonts on a server
+  # since there are no fonts to be configured outside the console
+  fonts = mapAttrs (_: mkForce) {
+    packages = [];
+    fontDir.enable = false;
+    fontconfig.enable = false;
+  };
+
+  # a headless system should not mount any removable media without explicit
+  # user action
+  services.udisks2.enable = lib.modules.mkForce false;
+
+  xdg = mapAttrs (_: mkForce) {
+    sounds.enable = false;
+    mime.enable = false;
+    menus.enable = false;
+    icons.enable = false;
+    autostart.enable = false;
+  };
+
+  # https://github.com/numtide/srvos/blob/main/nixos/server/default.nix
+  systemd = {
+    # given that our systems are headless, emergency mode is useless.
+    # we prefer the system to attempt to continue booting so
+    # that we can hopefully still access it remotely.
+    enableEmergencyMode = false;
+
+    # For more detail, see:
+    #   https://0pointer.de/blog/projects/watchdog.html
+    settings.Manager = {
+      # systemd will send a signal to the hardware watchdog at half
+      # the interval defined here, so every 10s.
+      # If the hardware watchdog does not get a signal for 20s,
+      # it will forcefully reboot the system.
+      RuntimeWatchdogSec = "20s";
+      # Forcefully reboot if the final stage of the reboot
+      # hangs without progress for more than 30s.
+      # For more info, see:
+      #   https://utcc.utoronto.ca/~cks/space/blog/linux/SystemdShutdownWatchdog
+      RebootWatchdogSec = "30s";
+    };
+
+    sleep.extraConfig = ''
+      AllowSuspend=no
+      AllowHibernation=no
+    '';
+  };
+
   age = {
-    # identityPaths = [
-    #   "/etc/ssh/ssh_host_ed25519_key"
-    #   "${config.home-manager.users.viruz.home.homeDirectory}/.ssh/id_ed25519"
-    # ];
     secrets = {
       tailscale = {
         file = "${self}/secrets/tailscale.age";

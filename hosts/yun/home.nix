@@ -51,9 +51,6 @@
 
     packages = with pkgs; [
       # Apps
-      #(vesktop.override {
-      #  withSystemVencord = false;
-      #})
       equibop
       discord
       bitwarden
@@ -64,7 +61,6 @@
       intel-gpu-tools
       nicotine-plus
       zapzap
-      # syncplay
       # inputs.umu.packages.${pkgs.system}.umu-launcher
       lutris
       zed-editor
@@ -76,14 +72,12 @@
       tealdeer
       zellij
       nur.repos.ataraxiasjel.waydroid-script
-      # cinny-desktop
       olympus
       telegram-desktop
       mission-center
-      # modrinth-app
       btop
-      heroic
       nautilus
+      inputs.nixpkgs-heroic-fix.legacyPackages.${pkgs.system}.heroic
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard

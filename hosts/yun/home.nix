@@ -58,7 +58,6 @@
       anki-bin
       inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
       deluge-gtk
-      intel-gpu-tools
       nicotine-plus
       zapzap
       # inputs.umu.packages.${pkgs.system}.umu-launcher

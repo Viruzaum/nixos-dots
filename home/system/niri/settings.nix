@@ -4,18 +4,14 @@
   ...
 }: {
   programs.niri = {
-    package = pkgs.niri-stable;
     settings = {
       debug = {
         honor-xdg-activation-with-invalid-serial = {};
       };
       environment = {
         QT_QPA_PLATFORMTHEME = "qt6ct";
-        DISPLAY = ":3";
       };
       spawn-at-startup = [
-        {command = [(lib.getExe' pkgs.systemd "systemctl") "--user" "set-environment" "DISPLAY=:3"];}
-        {command = [(lib.getExe pkgs.xwayland-satellite) ":3"];}
         {command = ["qs" "-c" "meow"];}
         {command = [(lib.getExe pkgs.fcitx5) "-d"];}
       ];

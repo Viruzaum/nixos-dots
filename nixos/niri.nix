@@ -26,7 +26,7 @@
     wl-clipboard
     wayland-utils
     libsecret
-    xwayland-satellite
     swww
+    xwayland-satellite-stable
   ];
 }

@@ -77,6 +77,7 @@
       btop
       nautilus
       heroic
+      protontricks
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard

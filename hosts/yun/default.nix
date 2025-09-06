@@ -31,7 +31,7 @@
     ../../nixos/users.nix
     ../../nixos/nix-ld.nix
     ../../nixos/utils.nix
-    # ../../nixos/xdg-portal.nix
+    ../../nixos/xdg-portal.nix
     ../../nixos/otd.nix
     ../../nixos/variables-config.nix
     ../../nixos/waydroid.nix

@@ -16,10 +16,13 @@
         {command = [(lib.getExe pkgs.fcitx5) "-d"];}
       ];
       input = {
-        keyboard.xkb.layout = "br";
+        keyboard.xkb = {
+          layout = "br";
+          options = "ctrl:nocaps";
+        };
         focus-follows-mouse.enable = true;
         warp-mouse-to-focus.enable = true;
-        focus-follows-mouse.max-scroll-amount = "0%";
+        focus-follows-mouse.max-scroll-amount = "50%";
       };
       layout = {
         empty-workspace-above-first = true;

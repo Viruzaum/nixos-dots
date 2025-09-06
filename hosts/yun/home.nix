@@ -13,6 +13,7 @@
     ../../home/programs/nushell
     ../../home/programs/fastfetch
     ../../home/programs/git
+    ../../home/programs/jujutsu
     ../../home/programs/kitty
     ../../home/programs/mpv
     ../../home/programs/mpd

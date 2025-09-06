@@ -9,6 +9,7 @@
       ui = {
         color = "auto";
         default-command = "log";
+        paginate = "never";
       };
       signing = {
         behavior = "keep";

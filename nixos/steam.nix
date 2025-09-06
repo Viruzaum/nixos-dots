@@ -48,11 +48,6 @@
     })
   ];
 
-  # Fix Devil Daggers
-  nixpkgs.config.permittedInsecurePackages = [
-    # "openssl-1.1.1w"
-  ];
-
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 }

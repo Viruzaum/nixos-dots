@@ -18,15 +18,11 @@
 
   environment.variables = {
     NIXOS_OZONE_WL = "1";
-    # XMODIFIERS = "@im=fcitx";
-    # GTK_IM_MODULE = "fcitx";
-    # QT_IM_MODULE = "fcitx";
   };
   environment.systemPackages = with pkgs; [
     wl-clipboard
     wayland-utils
     libsecret
-    swww
     xwayland-satellite-stable
   ];
 }

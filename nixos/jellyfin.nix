@@ -6,6 +6,6 @@
   };
 
   environment.systemPackages = [
-    pkgs.jellyfin-mpv-shim
+    # pkgs.jellyfin-mpv-shim
   ];
 }

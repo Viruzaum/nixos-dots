@@ -76,7 +76,7 @@
       mission-center
       btop
       nautilus
-      inputs.nixpkgs-heroic-fix.legacyPackages.${pkgs.system}.heroic
+      heroic
     ];
 
     # Import my profile picture, used by the hyprpanel dashboard

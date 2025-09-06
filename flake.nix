@@ -54,7 +54,6 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-heroic-fix.url = "github:aidalgol/nixpkgs/heroic-win32-helpers-fix";
 
     kuroneko.url = "git+ssh://git@codeberg.org/viruz/kuroneko.git";
 

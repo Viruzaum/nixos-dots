@@ -67,6 +67,10 @@
     });
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
+
   age = {
     # identityPaths = [
     #   "/etc/ssh/ssh_host_ed25519_key"

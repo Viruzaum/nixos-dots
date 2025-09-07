@@ -22,8 +22,8 @@
       pkgs.mpvScripts.mpris
     ];
   };
-  # services.jellyfin-mpv-shim = {
-  #   enable = true;
-  #   mpvConfig = self.nixosConfigurations.yun.config.home-manager.users.viruz.programs.mpv.config;
-  # };
+  services.jellyfin-mpv-shim = {
+    enable = true;
+    mpvConfig = self.nixosConfigurations.yun.config.home-manager.users.viruz.programs.mpv.config;
+  };
 }

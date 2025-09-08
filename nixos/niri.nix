@@ -8,16 +8,24 @@
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri.overrideAttrs (o: {
-      patches =
-        (o.patches or [])
-        ++ [
-          (pkgs.fetchpatch {
-            url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2333.diff";
-            hash = "sha256-MN3/GyuTKEj7GIZEN/woFzY3xD/tSSeddvvKpAt6czc=";
-            name = "fullscreen-refactor";
-          })
-        ];
+    package = pkgs.niri.overrideAttrs (o: rec {
+      src = pkgs.applyPatches {
+        inherit (o) src;
+        patches =
+          (o.patches or [])
+          ++ [
+            (pkgs.fetchpatch {
+              url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2333.diff";
+              hash = "sha256-s+DzYSezzP9CABBOEmPnW/dd9DhamMAiOr3mmrXiz/Q=";
+              name = "fullscreen-refactor";
+            })
+          ];
+      };
+
+      cargoDeps = pkgs.rustPlatform.importCargoLock {
+        lockFile = "${src}/Cargo.lock"; # use the lockfile after patches
+        allowBuiltinFetchGit = true;
+      };
     });
   };
 

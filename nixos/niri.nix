@@ -8,15 +8,16 @@
 
   programs.niri = {
     enable = true;
-    package = pkgs.niri.overrideAttrs (o: rec {
+    package = pkgs.niri-unstable.overrideAttrs (o: rec {
       src = pkgs.applyPatches {
         inherit (o) src;
+        name = "niri";
         patches =
           (o.patches or [])
           ++ [
             (pkgs.fetchpatch {
               url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2376.diff";
-              hash = "sha256-NkzP3LBhz/S2B1N16yD1MWySj/AJeI2Vy4zTdbAmiXM=";
+              hash = "sha256-tPjNxWVOKThCItPPO+VYiogKqkrQYLZCT3XB5l9rmYo=";
               name = "true-maximize";
             })
           ];

@@ -55,9 +55,9 @@
       equibop
       discord
       bitwarden
-      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.zen-browser.packages.${system}.default
       anki-bin
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+      inputs.nix-gaming.packages.${system}.osu-lazer-bin
       deluge-gtk
       nicotine-plus
       zapzap
@@ -68,7 +68,7 @@
       statix
       manix
       deadnix
-      inputs.agenix.packages.${pkgs.system}.default
+      inputs.agenix.packages.${system}.default
       tealdeer
       zellij
       nur.repos.ataraxiasjel.waydroid-script

@@ -26,7 +26,7 @@
     "Mod+D".action = spawn "walker";
     "Mod+V".action = spawn "walker" "-m" "clipboard";
     "Mod+B".action = spawn "zen";
-    "Mod+Return".action = spawn "kitty";
+    "Mod+Return".action = spawn "kitty" "--single-instance";
     "Mod+R".action = switch-preset-column-width;
     "Mod+Shift+P".action = power-off-monitors;
     "Mod+I".action = show-hotkey-overlay;

@@ -15,9 +15,9 @@
           (o.patches or [])
           ++ [
             (pkgs.fetchpatch {
-              url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2333.diff";
-              hash = "sha256-s+DzYSezzP9CABBOEmPnW/dd9DhamMAiOr3mmrXiz/Q=";
-              name = "fullscreen-refactor";
+              url = "https://patch-diff.githubusercontent.com/raw/YaLTeR/niri/pull/2376.diff";
+              hash = "sha256-NkzP3LBhz/S2B1N16yD1MWySj/AJeI2Vy4zTdbAmiXM=";
+              name = "true-maximize";
             })
           ];
       };

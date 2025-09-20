@@ -1,8 +1,11 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: {
+}: let
+  toggle-screenrec = import ./scripts/toggle-screenrec.nix {inherit pkgs lib;};
+in {
   programs.niri.settings.binds = with config.lib.niri.actions; let
     set-volume = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@";
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
@@ -97,6 +100,8 @@
     "Mod+WheelScrollLeft".action = focus-column-left;
     "Mod+Ctrl+WheelScrollRight".action = move-column-right;
     "Mod+Ctrl+WheelScrollLeft".action = move-column-left;
+
+    "Mod+S".action.spawn = ["fish" "${lib.getExe toggle-screenrec}"];
 
     # "Mod+1".action = focus-workspace 1;
     # "Mod+2".action = focus-workspace 2;

@@ -32,6 +32,7 @@ pkgs.writeScriptBin "toggle-screenrec.fish" ''
     rm -f /tmp/recordilock
 
     echo file:///home/viruz/videos/$filename.mp4 | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} -t text/uri-list
+    ${lib.getExe pkgs.libnotify} "recording finished and copied :3"
   end
 
   if test -f /tmp/recordilock

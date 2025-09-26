@@ -12,8 +12,11 @@
         QT_QPA_PLATFORMTHEME = "qt6ct";
       };
       spawn-at-startup = [
-        {command = ["qs" "-c" "meow"];}
-        {command = [(lib.getExe pkgs.fcitx5) "-d"];}
+        {argv = ["qs" "-c" "meow"];}
+        {argv = [(lib.getExe pkgs.fcitx5) "-d"];}
+        {sh = "sleep 1 && steam -silent";}
+        {argv = ["equibop"];}
+        {argv = ["zen"];}
       ];
       input = {
         keyboard.xkb = {

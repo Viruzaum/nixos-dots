@@ -23,7 +23,7 @@ pkgs.writeScriptBin "toggle-screenrec.fish" ''
     ${lib.getExe pkgs.wl-screenrec} --audio --audio-device=$audio_device -f ~/videos/tmp.mp4 --low-power=off
 
     ${lib.getExe pkgs.ffmpeg} -y -i ~/videos/tmp.mp4 \
-        -an \
+        -c:a copy \
         -c:v libx264 -preset medium -crf 21 \
         -movflags +faststart \
         -b:v 3M -maxrate 4.5M -bufsize 6M \

@@ -68,6 +68,7 @@
         {app-id = "firefox";}
         {app-id = "chromium-browser";}
         {app-id = "edge";}
+        {app-id = "equibop";}
       ];
       open-maximized = true;
     }

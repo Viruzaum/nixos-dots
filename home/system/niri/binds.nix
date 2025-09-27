@@ -44,6 +44,7 @@ in {
     "Mod+F".action = maximize-column;
     "Mod+Ctrl+F".action = expand-column-to-available-width;
     "Mod+Shift+F".action = fullscreen-window;
+    "Mod+Alt+F".action = reset-window-height;
     "Mod+Space".action = toggle-window-floating;
     "Mod+W".action = toggle-column-tabbed-display;
 

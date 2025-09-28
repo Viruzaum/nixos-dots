@@ -75,7 +75,7 @@
       olympus
       telegram-desktop
       mission-center
-      btop
+      btop-rocm
       nautilus
       heroic
       protontricks

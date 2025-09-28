@@ -25,8 +25,6 @@ in {
     disfetch
     bat
     eza
-    bottom
-    btop
     fd
     nix-prefetch-git
     ouch

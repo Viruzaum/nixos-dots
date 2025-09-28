@@ -7,7 +7,7 @@
     allowUnfree = true;
   };
   nix = {
-    package = pkgs.lix;
+    package = pkgs.lixPackageSets.stable.lix;
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     channel.enable = false;
     extraOptions = ''
@@ -25,4 +25,16 @@
       ];
     };
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit
+        (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 }

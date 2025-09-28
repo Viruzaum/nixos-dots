@@ -7,7 +7,7 @@ pkgs.writeScriptBin "toggle-screenrec.fish" ''
   #!/usr/bin/env fish
 
   function screenrec
-    set audio_device (${lib.getExe' pkgs.pulseaudio "pactl"} list short sources | string match --regex 'alsa_output\..+\.monitor')
+    set audio_device (echo (${lib.getExe' pkgs.wireplumber "wpctl"} status -n | string match --regex 'alsa_output\..+\.analog-stereo')".monitor")
 
     if test -z "$audio_device"
         echo "Error: Could not find an audio device." >&2
